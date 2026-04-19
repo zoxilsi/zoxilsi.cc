@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { ExternalLink, Sparkles, Mail, Globe, User, ArrowRight, Tags, Star, Users, Smile, Instagram } from 'lucide-react';
+import { ExternalLink, Sparkles, Mail, Globe, User, ArrowRight, Tags, Star, Users, Instagram, Home, Briefcase, GraduationCap, Terminal, ChevronDown, ChevronUp } from 'lucide-react';
 import { FaInstagram, FaGitlab, FaXTwitter, FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { SiJavascript, SiRust, SiFigma, SiPython, SiPostgresql, SiMongodb, SiMysql, SiPrisma, SiNextdotjs, SiReact, SiHtml5, SiCss, SiNodedotjs, SiGit, SiLinux, SiGooglegemini } from 'react-icons/si';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = ['home', 'projects', 'education', 'skills', 'contact'];
@@ -38,11 +39,11 @@ export default function App() {
   }, []);
 
   const sectionItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'education', label: 'Education' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: 'Home', icon: Home },
+    { id: 'projects', label: 'Projects', icon: Briefcase },
+    { id: 'education', label: 'Education', icon: GraduationCap },
+    { id: 'skills', label: 'Skills', icon: Terminal },
+    { id: 'contact', label: 'Contact', icon: Mail },
   ];
 
   const scrollToSection = (id: string) => {
@@ -89,7 +90,6 @@ export default function App() {
           </div>
           <div className="hidden md:flex items-center space-x-1">
             <button onClick={() => scrollToSection('projects')} className="px-5 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-foreground hover:bg-slate-100 transition-colors">Projects</button>
-            <button onClick={() => scrollToSection('about')} className="px-5 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-foreground hover:bg-slate-100 transition-colors">About</button>
             <button onClick={() => scrollToSection('skills')} className="px-5 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-foreground hover:bg-slate-100 transition-colors">Skills</button>
             <button onClick={() => scrollToSection('contact')} className="px-5 py-2 rounded-full text-sm font-bold bg-foreground text-white hover:bg-brand-blue transition-colors">Contact</button>
           </div>
@@ -287,26 +287,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* About */}
-        <section id="about" className="mb-20">
-          <div className="soft-card p-10 border border-slate-200 bg-white/80 backdrop-blur-sm">
-            <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
-              <span className="bg-brand-green/20 w-10 h-10 rounded-full flex items-center justify-center text-brand-green">
-                <Smile size={20} />
-              </span>
-              Who am I
-            </h2>
-            <div className="text-lg font-medium leading-relaxed flex flex-col gap-4 text-foreground/80">
-              <p>
-                I'm an <span className="font-bold text-slate-800">MCA 2026 student</span> who genuinely loves to build things. I spend my time exploring new tech tools, keeping up with the evolving tech space, and talking about all things technology.
-              </p>
-              <p>
-                I thrive on turning ideas into reality. One of my projects even went viral and reached over <span className="bg-brand-yellow/30 text-amber-700 px-2 py-0.5 rounded-md inline-block font-bold">200K+ visitors</span>, which was an incredible experience that showed me the real-world impact of creating simple, creative solutions.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Education Section */}
         <section id="education" className="mb-16">
           <div className="flex items-center gap-4 mb-8">
@@ -448,23 +428,69 @@ export default function App() {
       
       {/* Floating Theme Menu */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-        <div className="bg-[#121212] backdrop-blur-xl border border-white/10 shadow-2xl rounded-full px-4 md:px-6 py-3 flex items-center gap-2 md:gap-3 justify-center">
+        
+        {/* Mobile Dropdown Menu */}
+        <div className="md:hidden relative flex flex-col items-center">
+          <div className={`absolute bottom-full mb-3 w-48 bg-[#121212] backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl p-2 flex flex-col gap-1 transition-all duration-300 z-40 ${isMobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+            {sectionItems.map((item) => {
+              const isActive = activeSection === item.id;
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => { scrollToSection(item.id); setIsMobileMenuOpen(false); }}
+                  className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
+                    isActive ? 'text-white bg-white/10' : 'text-white/70 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <span className="flex items-center gap-3">
+                    {isActive && <Icon size={16} className="text-brand-pink drop-shadow-[0_0_8px_rgba(255,104,175,0.8)]" />}
+                    {item.label}
+                  </span>
+                  {isActive && <div className="w-1.5 h-1.5 rounded-full bg-brand-pink shadow-[0_0_10px_rgba(255,104,175,0.95)]"></div>}
+                </button>
+              );
+            })}
+          </div>
+          
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="bg-[#121212] backdrop-blur-xl border border-white/10 shadow-2xl rounded-full px-6 py-3 flex items-center gap-3 justify-center text-white text-sm font-medium z-50 hover:bg-[#1a1a1a] transition-colors"
+          >
+            {(() => {
+              const activeItem = sectionItems.find(i => i.id === activeSection);
+              if (activeItem) {
+                const ActiveIcon = activeItem.icon;
+                return (
+                  <span className="flex items-center gap-2">
+                    <ActiveIcon size={16} className="text-brand-pink drop-shadow-[0_0_8px_rgba(255,104,175,0.8)]" />
+                    <span>{activeItem.label}</span>
+                  </span>
+                );
+              }
+              return 'Menu';
+            })()}
+            {isMobileMenuOpen ? <ChevronDown size={16} className="text-white/50" /> : <ChevronUp size={16} className="text-white/50" />}
+          </button>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex bg-[#121212] backdrop-blur-xl border border-white/10 shadow-2xl rounded-full px-6 py-3 items-center gap-3 justify-center">
           {sectionItems.map((item) => {
             const isActive = activeSection === item.id;
+            const Icon = item.icon;
 
             return (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs md:text-sm font-medium transition-colors ${
-                  isActive ? 'text-white bg-white/10' : 'text-white/70 hover:text-white'
+                className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+                  isActive ? 'text-white bg-white/10' : 'text-white/70 hover:text-white hover:bg-white/5'
                 }`}
               >
-                <span
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    isActive ? 'bg-brand-pink shadow-[0_0_10px_rgba(255,104,175,0.95)]' : 'bg-white/25'
-                  }`}
-                ></span>
+                {isActive && (
+                  <Icon size={14} className="text-brand-pink drop-shadow-[0_0_8px_rgba(255,104,175,0.8)] transition-all animate-in zoom-in" />
+                )}
                 {item.label}
               </button>
             );
