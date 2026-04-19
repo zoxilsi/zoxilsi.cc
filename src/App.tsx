@@ -68,30 +68,34 @@ export default function App() {
       <div className="max-w-4xl mx-auto px-6 py-6 pb-32 relative z-10">
         
         {/* Navigation */}
-        <nav className="flex items-center justify-between mb-16 bg-white/40 backdrop-blur-xl p-2 pl-4 rounded-full border border-slate-200/60 shadow-sm transition-all duration-300 pointer-events-auto">
-          <div className="flex items-center gap-4 pr-2">
+        <nav className="flex items-center justify-between mb-16 bg-white/40 backdrop-blur-xl px-5 py-3 rounded-full border border-slate-200/60 shadow-sm transition-all duration-300 pointer-events-auto">
+          <div className="flex items-center">
             <span className="font-black text-xl md:text-2xl tracking-tight uppercase bg-gradient-to-r from-brand-pink via-brand-blue to-brand-green bg-clip-text text-transparent drop-shadow-[0_1px_0_rgba(0,0,0,0.08)]">
               zoxilsi
             </span>
-            <div className="hidden sm:flex border-l border-slate-200 pl-4">
-              <a href="https://instagram.com/zoxilsi" target="_blank" rel="noreferrer" className="group relative flex items-center justify-center p-1 rounded-full transition-colors">
-                <svg width="0" height="0" className="absolute">
-                  <linearGradient id="insta-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#f09433"/>
-                    <stop offset="25%" stopColor="#e6683c"/>
-                    <stop offset="50%" stopColor="#dc2743"/>
-                    <stop offset="75%" stopColor="#cc2366"/>
-                    <stop offset="100%" stopColor="#bc1888"/>
-                  </linearGradient>
-                </svg>
-                <Instagram size={20} className="text-slate-400 group-hover:text-transparent group-hover:stroke-[url(#insta-grad)] transition-all duration-300 insta-play" />
-              </a>
-            </div>
           </div>
-          <div className="hidden md:flex items-center space-x-1">
-            <button onClick={() => scrollToSection('projects')} className="px-5 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-foreground hover:bg-slate-100 transition-colors">Projects</button>
-            <button onClick={() => scrollToSection('skills')} className="px-5 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-foreground hover:bg-slate-100 transition-colors">Skills</button>
-            <button onClick={() => scrollToSection('contact')} className="px-5 py-2 rounded-full text-sm font-bold bg-foreground text-white hover:bg-brand-blue transition-colors">Contact</button>
+          <div className="flex items-center gap-5">
+            <a href="https://github.com/zoxilsi" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-foreground transition-colors duration-300 flex items-center justify-center">
+              <FaGithub size={20} />
+            </a>
+            <a href="https://x.com/zoxilsi" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-black transition-colors duration-300 flex items-center justify-center">
+              <FaXTwitter size={20} />
+            </a>
+            <a href="https://linkedin.com/in/zoxilsi" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#0A66C2] transition-colors duration-300 flex items-center justify-center">
+              <FaLinkedin size={20} />
+            </a>
+            <a href="https://instagram.com/zoxilsi" target="_blank" rel="noreferrer" className="group relative flex items-center justify-center transition-colors duration-300">
+              <svg width="0" height="0" className="absolute">
+                <linearGradient id="insta-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#f09433"/>
+                  <stop offset="25%" stopColor="#e6683c"/>
+                  <stop offset="50%" stopColor="#dc2743"/>
+                  <stop offset="75%" stopColor="#cc2366"/>
+                  <stop offset="100%" stopColor="#bc1888"/>
+                </linearGradient>
+              </svg>
+              <Instagram size={20} className="text-slate-400 group-hover:text-transparent group-hover:stroke-[url(#insta-grad)] transition-all duration-300 insta-play" />
+            </a>
           </div>
         </nav>
 
