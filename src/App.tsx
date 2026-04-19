@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ExternalLink, Sparkles, Mail, Globe, User, ArrowRight, Tags, Star, Users, Instagram, Home, Briefcase, GraduationCap, Terminal, ChevronDown, ChevronUp } from 'lucide-react';
+import { ExternalLink, Sparkles, Mail, Globe, User, ArrowRight, Tags, Star, Users, Instagram, Home, Briefcase, GraduationCap, Terminal, ChevronDown, ChevronUp, BookOpen, Award, Calendar, MapPin } from 'lucide-react';
 import { FaInstagram, FaGitlab, FaXTwitter, FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { SiJavascript, SiRust, SiFigma, SiPython, SiPostgresql, SiMongodb, SiMysql, SiPrisma, SiNextdotjs, SiReact, SiHtml5, SiCss, SiNodedotjs, SiGit, SiLinux, SiGooglegemini } from 'react-icons/si';
 
@@ -294,30 +294,57 @@ export default function App() {
         {/* Education Section */}
         <section id="education" className="mb-16">
           <div className="flex items-center gap-4 mb-8">
-            <h2 className="text-3xl font-black uppercase text-foreground">Education</h2>
+            <h2 className="text-3xl font-black uppercase text-foreground flex items-center gap-3">
+              <GraduationCap size={28} className="text-brand-blue" />
+              Education
+            </h2>
             <div className="h-0.5 flex-grow bg-slate-200"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="soft-card p-6 bg-white border border-slate-200 flex flex-col justify-between">
+            <div className="soft-card p-6 bg-white border border-slate-200 flex flex-col justify-between group">
               <div>
+                <div className="bg-brand-pink/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Award size={24} className="text-brand-pink" />
+                </div>
                 <h3 className="text-xl font-bold text-slate-800">Master of Computer Applications</h3>
-                <p className="text-slate-500 font-medium mt-1">Rajiv Gandhi Institute of Technology</p>
+                <p className="text-slate-500 font-medium mt-2 flex items-center gap-2">
+                  <MapPin size={14} className="text-slate-400" />
+                  Rajiv Gandhi Institute of Technology
+                </p>
               </div>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-slate-400 text-sm font-bold uppercase tracking-wider">2024 - 2026</span>
-                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black uppercase rounded-md tracking-wider">Postgraduate</span>
+              <div className="mt-6 flex items-center justify-between">
+                <span className="text-slate-500 text-sm font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <Calendar size={14} className="text-slate-400" />
+                  2024 - 2026
+                </span>
+                <span className="px-3 py-1.5 bg-brand-pink/10 text-brand-pink text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5 border border-brand-pink/20">
+                  <Award size={10} />
+                  Postgraduate
+                </span>
               </div>
             </div>
             
-            <div className="soft-card p-6 bg-white border border-slate-200 flex flex-col justify-between">
+            <div className="soft-card p-6 bg-white border border-slate-200 flex flex-col justify-between group">
               <div>
+                <div className="bg-brand-blue/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <BookOpen size={24} className="text-brand-blue" />
+                </div>
                 <h3 className="text-xl font-bold text-slate-800">Bachelor of Computer Science</h3>
-                <p className="text-slate-500 font-medium mt-1">Kannur University</p>
+                <p className="text-slate-500 font-medium mt-2 flex items-center gap-2">
+                  <MapPin size={14} className="text-slate-400" />
+                  Kannur University
+                </p>
               </div>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-slate-400 text-sm font-bold uppercase tracking-wider">Graduated</span>
-                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black uppercase rounded-md tracking-wider">Undergraduate</span>
+              <div className="mt-6 flex items-center justify-between">
+                <span className="text-slate-500 text-sm font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <Calendar size={14} className="text-slate-400" />
+                  Graduated
+                </span>
+                <span className="px-3 py-1.5 bg-brand-blue/10 text-brand-blue text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5 border border-brand-blue/20">
+                  <BookOpen size={10} />
+                  Undergraduate
+                </span>
               </div>
             </div>
           </div>
