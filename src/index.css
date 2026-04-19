@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&family=Caveat:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #fdfbf7;
+    --foreground: #2d3748;
+    --muted: #718096;
+    --border: #e2e8f0;
+    --primary: #2b6cb0;
+    --card: #ffffff;
+    
+    --brand-pink: #ff68af;
+    --brand-yellow: #ffe96e;
+    --brand-green: #b9ff78;
+    --brand-blue: #6d84ff;
+    --brand-magenta: #ff6ef5;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+.soft-card {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.soft-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12);
+}
+
+.polaroid {
+  background: white;
+  padding: 12px 12px 24px 12px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.15);
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #2d3748;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+}
+
+.polaroid-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.soft-btn {
+  border-radius: 9999px;
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.soft-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.soft-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+@keyframes insta-dash {
+  to {
+    stroke-dashoffset: -30;
+  }
+}
+
+.group:hover .insta-play rect,
+.group:hover .insta-play path {
+  stroke-dasharray: 6 4;
+  animation: insta-dash 1s linear infinite;
+}
