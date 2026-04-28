@@ -86,16 +86,6 @@ export default function App() {
             </span>
           </div>
           <div className="flex items-center gap-4 md:gap-5">
-            <a href="https://github.com/zoxilsi/zoxilsi.cc" title="Star on GitHub" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-white/50 hover:bg-white/80 text-slate-500 hover:text-foreground border border-slate-200/60 rounded-full text-xs font-semibold transition-all shadow-sm">
-              <FaGithub size={14} />
-              <span className="hidden sm:inline">Star</span>
-              {githubStars !== null && (
-                <span className="bg-slate-200/50 px-1.5 py-0.5 rounded-full ml-0.5 text-slate-600 font-mono text-[10px]">{githubStars}</span>
-              )}
-            </a>
-            
-            <div className="h-4 w-px bg-slate-300 hidden sm:block"></div>
-
             <a href="https://github.com/zoxilsi" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-foreground transition-colors duration-300 flex items-center justify-center">
               <FaGithub size={20} />
             </a>
@@ -479,8 +469,8 @@ export default function App() {
         {/* Footer GitHub Star CTA */}
         <div className="mt-20 border-t border-slate-200/60 pt-10 pb-8 flex flex-col items-center justify-center text-center">
           <h3 className="text-xl font-bold bg-gradient-to-r from-slate-600 to-slate-900 bg-clip-text text-transparent mb-2">Like the design?</h3>
-          <p className="text-slate-500 text-sm mb-6 max-w-md">
-            Wanna see the code? Feel free to check out the repository. Support by dropping a star if you find it useful.
+          <p className="text-slate-500 text-sm mb-6 max-w-sm">
+            Check out the source code and drop a star if you like it.
           </p>
           <a href="https://github.com/zoxilsi/zoxilsi.cc" title="Star on GitHub" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-slate-50 text-slate-700 hover:text-foreground border border-slate-200/80 rounded-full font-bold shadow-sm transition-all hover:shadow-md group">
             <FaGithub size={16} className="text-slate-500 group-hover:text-foreground transition-colors" />
