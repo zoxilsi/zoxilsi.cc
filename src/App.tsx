@@ -86,11 +86,11 @@ export default function App() {
             </span>
           </div>
           <div className="flex items-center gap-4 md:gap-5">
-            <a href="https://github.com/zoxilsi/zoxilsi.cc" title="Star on GitHub" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-3 md:px-4 py-1.5 md:py-2 bg-foreground hover:bg-slate-800 text-white rounded-full text-xs font-bold transition-all shadow-md group">
-              <Star size={14} className="group-hover:text-brand-yellow group-hover:fill-brand-yellow transition-colors" />
+            <a href="https://github.com/zoxilsi/zoxilsi.cc" title="Star on GitHub" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-white/50 hover:bg-white/80 text-slate-500 hover:text-foreground border border-slate-200/60 rounded-full text-xs font-semibold transition-all shadow-sm">
+              <FaGithub size={14} />
               <span className="hidden sm:inline">Star</span>
               {githubStars !== null && (
-                <span className="bg-slate-700/50 px-2 py-0.5 rounded-full ml-0.5 text-slate-100 font-mono text-[10px]">{githubStars}</span>
+                <span className="bg-slate-200/50 px-1.5 py-0.5 rounded-full ml-0.5 text-slate-600 font-mono text-[10px]">{githubStars}</span>
               )}
             </a>
             

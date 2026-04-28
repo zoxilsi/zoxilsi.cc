@@ -1,7 +1,7 @@
 <br />
 <div align="center">
 
-  <img src="public/profile.png" alt="Zoxilsi Profile" width="800" />
+  <img src="title_readme.png" alt="Zoxilsi Profile" width="800" />
 
   <h2>Zoxilsi.cc Portfolio Source Code</h2>
   
@@ -21,7 +21,7 @@
   </p>
   
   <p align="center">
-    <strong>If you like what you see, consider dropping a star!</strong> 
+    <strong>If you like what you see or borrowed some inspiration, consider dropping a star!</strong> 
     <br />
     <a href="https://github.com/zoxilsi/zoxilsi.cc">
       <img src="https://img.shields.io/github/stars/zoxilsi/zoxilsi.cc?style=social&label=Star" alt="GitHub stars" />
@@ -44,31 +44,43 @@
   <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel" />
 </p>
 
-### Local Development
+### Want to build a portfolio like this?
 
-1. **Clone the repository**
+Feel free to fork this project to use as a base for your own personal website! Just be sure to customize the content, links, and styling to make it uniquely yours. The codebase is heavily modularized, making it simple to tweak the design system in `tailwind.config.js` and structure in `App.tsx`.
+
+If you do use it, **a star on this repository and a small credit** at the bottom of your site would be highly appreciated!
+
+### Usage & Setup
+
+Local installation is fast and easy:
+
+1. **Clone the repository:**
    ```sh
    git clone https://github.com/zoxilsi/zoxilsi.cc.git
    ```
 
-2. **Install dependencies**
+2. **Navigate into the folder:**
+   ```sh
+   cd zoxilsi.cc
+   ```
+
+3. **Install the dependencies:**
    ```sh
    npm install
    ```
 
-3. **Start the development server**
+4. **Spin up your local development server:**
    ```sh
    npm run dev
    ```
 
-### Architecture Overview
+### Architecture & Deployment
 
-This project is configured for seamless deployment on robust platforms like Vercel. The build process compiles all React components and Tailwind utilities into optimized static HTML, CSS, and JavaScript. 
+This application is built as a static frontend. Node.js is exclusively utilized locally to power Vite and process Tailwind CSS styling. 
 
-Node.js is utilized strictly for local development tooling—such as powering the Vite bundler and compiling Tailwind CSS styles. Once the application is built (`npm run build`), it serves entirely as statically generated assets, ensuring peak performance without requiring a backend runtime environment in production.
+When you run `npm run build`, everything compiles down into optimized vanilla HTML/CSS/JS. It's ready to be seamlessly deployed via platforms like **Vercel** or **Netlify** with zero backend infrastructure required.
 
 <br />
-
 <div align="center">
   Built with dedication to turning bold ideas into real products people use.
 </div>
