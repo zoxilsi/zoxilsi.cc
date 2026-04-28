@@ -1,7 +1,7 @@
 <br />
 <div align="center">
 
-  <img src="title_readme.png" alt="Zoxilsi Profile" width="800" />
+  <img src="public/images/title_readme.png" alt="Zoxilsi Profile" width="800" />
 
   <h2>Zoxilsi.cc Portfolio Source Code</h2>
   
