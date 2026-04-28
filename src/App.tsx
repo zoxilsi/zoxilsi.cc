@@ -6,8 +6,19 @@ import { SiJavascript, SiRust, SiFigma, SiPython, SiPostgresql, SiMongodb, SiMys
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [githubStars, setGithubStars] = useState<number | null>(null);
 
   useEffect(() => {
+    // Fetch GitHub stars for the repository
+    fetch('https://api.github.com/repos/zoxilsi/zoxilsi.cc')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.stargazers_count !== undefined) {
+          setGithubStars(data.stargazers_count);
+        }
+      })
+      .catch(console.error);
+
     const sections = ['home', 'projects', 'education', 'skills', 'contact'];
 
     const updateActiveSection = () => {
@@ -74,7 +85,17 @@ export default function App() {
               zoxilsi
             </span>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-4 md:gap-5">
+            <a href="https://github.com/zoxilsi/zoxilsi.cc" title="Star on GitHub" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-3 md:px-4 py-1.5 md:py-2 bg-foreground hover:bg-slate-800 text-white rounded-full text-xs font-bold transition-all shadow-md group">
+              <Star size={14} className="group-hover:text-brand-yellow group-hover:fill-brand-yellow transition-colors" />
+              <span className="hidden sm:inline">Star</span>
+              {githubStars !== null && (
+                <span className="bg-slate-700/50 px-2 py-0.5 rounded-full ml-0.5 text-slate-100 font-mono text-[10px]">{githubStars}</span>
+              )}
+            </a>
+            
+            <div className="h-4 w-px bg-slate-300 hidden sm:block"></div>
+
             <a href="https://github.com/zoxilsi" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-foreground transition-colors duration-300 flex items-center justify-center">
               <FaGithub size={20} />
             </a>
