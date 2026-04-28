@@ -476,6 +476,24 @@ export default function App() {
           </div>
         </section>
 
+        {/* Footer GitHub Star CTA */}
+        <div className="mt-20 border-t border-slate-200/60 pt-10 pb-8 flex flex-col items-center justify-center text-center">
+          <h3 className="text-xl font-bold bg-gradient-to-r from-slate-600 to-slate-900 bg-clip-text text-transparent mb-2">Like the design?</h3>
+          <p className="text-slate-500 text-sm mb-6 max-w-md">
+            Wanna see the code? Feel free to check out the repository. Support by dropping a star if you find it useful.
+          </p>
+          <a href="https://github.com/zoxilsi/zoxilsi.cc" title="Star on GitHub" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-slate-50 text-slate-700 hover:text-foreground border border-slate-200/80 rounded-full font-bold shadow-sm transition-all hover:shadow-md group">
+            <FaGithub size={16} className="text-slate-500 group-hover:text-foreground transition-colors" />
+            <span>Star the repo</span>
+            {githubStars !== null && (
+              <span className="bg-slate-100 flex items-center justify-center px-2 py-0.5 rounded-full ml-1 text-slate-600 font-mono text-[11px] font-black border border-slate-200/50 group-hover:bg-slate-200 transition-colors">
+                <Star size={10} className="mr-1 text-amber-400 fill-amber-400" />
+                {githubStars}
+              </span>
+            )}
+          </a>
+        </div>
+
       </div>
       
       {/* Floating Theme Menu */}
