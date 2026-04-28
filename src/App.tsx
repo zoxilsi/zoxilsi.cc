@@ -134,7 +134,7 @@ export default function App() {
           
           <div className="flex-shrink-0 relative w-56 md:w-72 mt-8 md:mt-0 group">
              <div className="polaroid z-20 group-hover:scale-105 transition-transform duration-300">
-              <img src="/profile.png" alt="My Profile" className="polaroid-img" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'; }} />
+              <img src="/images/profile.png" alt="My Profile" className="polaroid-img" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'; }} />
               <p className="font-handwriting text-2xl text-center mt-1 font-bold text-foreground">zoxilsi</p>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function App() {
               </div>
               <a href="https://bananacv.fun/" target="_blank" rel="noreferrer" className="h-56 bg-brand-pink/10 relative overflow-hidden flex items-center justify-center p-4 rounded-t-[1.3rem]">
                 <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
-                <img src="/bananacv.png" alt="BananaCV" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
+                <img src="/images/bananacv.png" alt="BananaCV" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                 <h3 className="hidden font-handwriting text-5xl text-brand-pink font-bold rotate-[-5deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">BananaCV</h3>
               </a>
               <div className="p-6 flex flex-col flex-grow bg-white rounded-b-[1.3rem]">
@@ -185,7 +185,7 @@ export default function App() {
             <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px] mt-4">
               <a href="https://github.com/zoxilsi/Linara-Terminal" target="_blank" rel="noreferrer" className="h-56 bg-brand-yellow/10 relative overflow-hidden flex items-center justify-center p-4">
                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
-                 <img src="/linara-terminal.png" alt="Linara Terminal" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
+                 <img src="/images/linara-terminal.png" alt="Linara Terminal" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                  <h3 className="hidden font-handwriting text-5xl text-brand-yellow font-bold rotate-[-2deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">Linara</h3>
               </a>
               <div className="p-6 flex flex-col flex-grow bg-white">
@@ -213,7 +213,7 @@ export default function App() {
             <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px]">
               <a href="https://mallu-key.vercel.app/" target="_blank" rel="noreferrer" className="h-56 bg-brand-blue/10 relative overflow-hidden flex items-center justify-center p-4">
                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
-                 <img src="/mallukey.png" alt="malluKey" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
+                 <img src="/images/mallukey.png" alt="malluKey" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                  <h3 className="hidden font-handwriting text-4xl text-brand-blue font-bold rotate-[3deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">malluKey</h3>
               </a>
               <div className="p-6 flex flex-col flex-grow bg-white">
@@ -243,7 +243,7 @@ export default function App() {
             <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px]">
               <a href="https://github.com/zoxilsi/vibe" target="_blank" rel="noreferrer" className="h-56 bg-indigo-50 relative overflow-hidden flex items-center justify-center p-4">
                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
-                 <img src="/vibe.png" alt="Vibe Website Builder" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
+                 <img src="/images/vibe.png" alt="Vibe Website Builder" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                  <h3 className="hidden font-handwriting text-5xl text-indigo-500 font-bold rotate-[-2deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">Vibe</h3>
               </a>
               <div className="p-6 flex flex-col flex-grow bg-white">
@@ -271,7 +271,7 @@ export default function App() {
             <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px]">
               <a href="https://mca-rit.vercel.app/" target="_blank" rel="noreferrer" className="h-56 bg-emerald-500/10 relative overflow-hidden flex items-center justify-center p-4">
                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
-                 <img src="/mca-study-materials.png" alt="MCA Study Materials" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
+                 <img src="/images/mca-study-materials.png" alt="MCA Study Materials" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                  <h3 className="hidden font-handwriting text-4xl text-emerald-600 font-bold rotate-[-2deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">MCA Notes</h3>
               </a>
               <div className="p-6 flex flex-col flex-grow bg-white">
