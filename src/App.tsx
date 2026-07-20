@@ -359,8 +359,8 @@ export default function App() {
                   </a>
                 </div>
               </div>
-              <span className="px-3 py-1.5 bg-orange-500/10 text-orange-600 text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5 border border-orange-500/20 flex-shrink-0">
-                <Calendar size={10} />
+              <span className="px-3 py-1.5 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5 flex-shrink-0">
+                <Calendar size={10} className="text-orange-500" />
                 Present
               </span>
             </div>
@@ -399,8 +399,8 @@ export default function App() {
                   <Calendar size={14} className="text-slate-400" />
                   2024 - 2026
                 </span>
-                <span className="px-3 py-1.5 bg-brand-pink/10 text-brand-pink text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5 border border-brand-pink/20">
-                  <Award size={10} />
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5">
+                  <Award size={10} className="text-brand-pink" />
                   Postgraduate
                 </span>
               </div>
@@ -422,8 +422,8 @@ export default function App() {
                   <Calendar size={14} className="text-slate-400" />
                   Graduated
                 </span>
-                <span className="px-3 py-1.5 bg-brand-blue/10 text-brand-blue text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5 border border-brand-blue/20">
-                  <BookOpen size={10} />
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5">
+                  <BookOpen size={10} className="text-brand-blue" />
                   Undergraduate
                 </span>
               </div>
