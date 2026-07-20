@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ExternalLink, Sparkles, Mail, Globe, User, ArrowRight, Tags, Star, Users, Instagram, Home, Briefcase, GraduationCap, Terminal, ChevronDown, ChevronUp, BookOpen, Award, Calendar, MapPin, Palette } from 'lucide-react';
+import { ExternalLink, Sparkles, Mail, Globe, User, ArrowRight, Tags, Star, Users, Instagram, Home, Briefcase, GraduationCap, Terminal, ChevronDown, ChevronUp, BookOpen, Award, Calendar, MapPin, Palette, Building2 } from 'lucide-react';
 import { FaInstagram, FaGitlab, FaXTwitter, FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { SiJavascript, SiRust, SiFigma, SiPython, SiPostgresql, SiMongodb, SiMysql, SiPrisma, SiNextdotjs, SiReact, SiHtml5, SiCss, SiNodedotjs, SiGit, SiLinux, SiGooglegemini } from 'react-icons/si';
 
@@ -19,7 +19,7 @@ export default function App() {
       })
       .catch(console.error);
 
-    const sections = ['home', 'projects', 'education', 'skills', 'contact'];
+    const sections = ['home', 'projects', 'experience', 'education', 'skills', 'contact'];
 
     const updateActiveSection = () => {
       const triggerLine = window.scrollY + window.innerHeight * 0.35;
@@ -52,6 +52,7 @@ export default function App() {
   const sectionItems = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'projects', label: 'Projects', icon: Briefcase },
+    { id: 'experience', label: 'Work', icon: Building2 },
     { id: 'education', label: 'Education', icon: GraduationCap },
     { id: 'skills', label: 'Skills', icon: Terminal },
     { id: 'contact', label: 'Contact', icon: Mail },
@@ -115,7 +116,7 @@ export default function App() {
           <div className="flex-1 relative z-10 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-full font-bold text-sm mb-8 shadow-sm text-foreground transition-transform hover:scale-105 duration-300">
               <Sparkles className="text-brand-magenta animate-pulse" size={18} />
-              <span>A vibe coder & web developer exploring AI</span>
+              <span>A vibe coder & product engineer exploring AI</span>
             </div>
             
             <h1 className="leading-[1.1]">
@@ -331,6 +332,43 @@ export default function App() {
                 </ul>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="mb-16">
+          <div className="flex items-center gap-4 mb-8">
+            <h2 className="text-3xl font-black uppercase text-foreground flex items-center gap-3">
+              <Building2 size={28} className="text-orange-500" />
+              Where I Work
+            </h2>
+            <div className="h-0.5 flex-grow bg-slate-200"></div>
+          </div>
+
+          <div className="soft-card p-6 bg-white border border-slate-200 hover:border-slate-300 transition-colors group">
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <img src="/images/eduport_logo.png" alt="Eduport" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
+                  <Building2 size={22} className="hidden text-orange-500" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-800">Product Team</h3>
+                  <a href="https://eduport.app" target="_blank" rel="noreferrer" className="text-slate-500 font-medium hover:text-orange-500 transition-colors inline-flex items-center gap-1.5">
+                    Eduport <ExternalLink size={12} />
+                  </a>
+                </div>
+              </div>
+              <span className="px-3 py-1.5 bg-orange-500/10 text-orange-600 text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5 border border-orange-500/20 flex-shrink-0">
+                <Calendar size={10} />
+                Present
+              </span>
+            </div>
+            <ul className="text-muted font-medium text-sm list-disc pl-4 space-y-1.5 marker:text-orange-500">
+              <li>Work with the product team at Eduport, driving product direction alongside applied AI research.</li>
+              <li>Build simple internal tools and websites that make the organization's everyday work easier.</li>
+              <li>Shipped an exam analysis platform that records student marks, analyzes performance, and shares progress cards with parents.</li>
+            </ul>
           </div>
         </section>
 
