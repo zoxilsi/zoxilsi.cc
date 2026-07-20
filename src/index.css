@@ -85,6 +85,23 @@
   background: rgba(255, 255, 255, 0.75);
 }
 
+.glass-btn-dark {
+  background: rgba(24, 24, 27, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 10px 30px -8px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.glass-btn-dark:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 14px 36px -8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
 .polaroid {
   background: white;
   padding: 12px 12px 24px 12px;

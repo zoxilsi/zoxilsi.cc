@@ -556,7 +556,7 @@ export default function App() {
             </p>
 
             <div className="mb-16 flex flex-col items-center gap-6">
-              <a href="https://linkedin.com/in/zoxilsi" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 px-8 py-4 bg-foreground hover:bg-gradient-to-r hover:from-brand-pink hover:via-brand-blue hover:to-brand-green text-white rounded-full font-bold shadow-sm transition-all duration-700 ease-in-out">
+              <a href="https://linkedin.com/in/zoxilsi" target="_blank" rel="noreferrer" className="glass-btn-dark group inline-flex items-center gap-3 px-8 py-4 hover:bg-gradient-to-r hover:from-brand-pink hover:via-brand-blue hover:to-brand-green text-white rounded-full font-bold transition-all duration-700 ease-in-out">
                 <FaLinkedin size={20} className="transition-transform duration-700 group-hover:rotate-12" />
                 <span>Send a Message</span>
                 <ArrowRight className="group-hover:translate-x-2 transition-transform duration-700" size={18} />
