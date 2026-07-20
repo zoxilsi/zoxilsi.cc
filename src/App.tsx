@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ExternalLink, Sparkles, Mail, Globe, User, ArrowRight, Tags, Star, Users, Instagram, Home, Briefcase, GraduationCap, Terminal, ChevronDown, ChevronUp, BookOpen, Award, Calendar, MapPin } from 'lucide-react';
+import { ExternalLink, Sparkles, Mail, Globe, User, ArrowRight, Tags, Star, Users, Instagram, Home, Briefcase, GraduationCap, Terminal, ChevronDown, ChevronUp, BookOpen, Award, Calendar, MapPin, Palette } from 'lucide-react';
 import { FaInstagram, FaGitlab, FaXTwitter, FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { SiJavascript, SiRust, SiFigma, SiPython, SiPostgresql, SiMongodb, SiMysql, SiPrisma, SiNextdotjs, SiReact, SiHtml5, SiCss, SiNodedotjs, SiGit, SiLinux, SiGooglegemini } from 'react-icons/si';
 
@@ -148,8 +148,40 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px] mt-4">
+              <a href="https://studio.zoxilsi.cc/" target="_blank" rel="noreferrer" className="h-56 bg-gradient-to-br from-fuchsia-500/10 via-purple-500/10 to-cyan-500/10 relative overflow-hidden flex items-center justify-center p-4">
+                 <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
+                 <img src="/images/zoxilsi-studio.png" alt="zoxilsi studio" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
+                 <h3 className="hidden font-handwriting text-5xl text-fuchsia-600 font-bold rotate-[-2deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">studio</h3>
+              </a>
+              <div className="p-6 flex flex-col flex-grow bg-white">
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="text-2xl font-bold leading-tight">zoxilsi studio</h3>
+                  <div className="flex gap-2">
+                    <a href="https://github.com/zoxilsi/studio" title="Source Code" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
+                      <FaGithub size={18} />
+                    </a>
+                    <a href="https://studio.zoxilsi.cc/" title="Live Demo" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
+                      <ExternalLink size={18} />
+                    </a>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><Palette size={10} className="text-fuchsia-500" /> Design Tool</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><Globe size={10} className="text-cyan-500" /> WebGL</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><Star size={10} className="text-yellow-500" fill="currentColor" /> 65+ Stars</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><Users size={10} className="text-purple-500" /> 4 Contributors</span>
+                </div>
+                <ul className="text-muted font-medium mb-4 flex-grow text-sm list-disc pl-4 space-y-1.5 marker:text-fuchsia-600">
+                  <li>A browser-based mesh gradient editor for sculpting organic, flowing gradients in real-time WebGL.</li>
+                  <li>Export gradients as images, video, code, or fully editable project files.</li>
+                  <li>Grown organically to over <span className="text-slate-800 font-bold">2K+ users</span>.</li>
+                </ul>
+              </div>
+            </div>
+
             <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px] relative mt-4">
-              
+
               {/* Gift Ribbon */}
               <div className="absolute -right-14 top-8 w-48 h-10 bg-[#111] border-y-4 border-[#D4AF37] rotate-45 z-30 shadow-2xl flex items-center justify-center pointer-events-none before:absolute before:inset-0 before:border-y before:border-dashed before:border-[#FFDF73]/50">
                 <span className="text-[#D4AF37] text-[9px] font-black uppercase tracking-[0.3em] flex items-center gap-1.5 drop-shadow-md">
