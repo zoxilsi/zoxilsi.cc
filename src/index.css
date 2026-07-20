@@ -32,15 +32,57 @@
 }
 
 .soft-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   border-radius: 24px;
-  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow:
+    0 10px 40px -10px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .soft-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 20px 40px -10px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,1);
+}
+
+/* Apple-style glass surfaces — frosted, translucent, with a thin light-catching edge */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.glass-dock {
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 12px 40px -8px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.glass-chip {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.glass-chip:hover {
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .polaroid {
@@ -83,14 +125,3 @@
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-@keyframes insta-dash {
-  to {
-    stroke-dashoffset: -30;
-  }
-}
-
-.group:hover .insta-play rect,
-.group:hover .insta-play path {
-  stroke-dasharray: 6 4;
-  animation: insta-dash 1s linear infinite;
-}

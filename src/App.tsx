@@ -1,7 +1,65 @@
 import { useEffect, useState } from 'react';
-import { ExternalLink, Sparkles, Mail, Globe, User, ArrowRight, Tags, Star, Users, Instagram, Home, Briefcase, GraduationCap, Terminal, ChevronDown, ChevronUp, BookOpen, Award, Calendar, MapPin, Palette, Building2 } from 'lucide-react';
-import { FaInstagram, FaGitlab, FaXTwitter, FaGithub, FaLinkedin } from 'react-icons/fa6';
-import { SiJavascript, SiRust, SiFigma, SiPython, SiPostgresql, SiMongodb, SiMysql, SiPrisma, SiNextdotjs, SiReact, SiHtml5, SiCss, SiNodedotjs, SiGit, SiLinux, SiGooglegemini } from 'react-icons/si';
+import {
+  ArrowUpRightSquare,
+  Sparkles,
+  Envelope,
+  Globe,
+  User,
+  ArrowRight,
+  Tag,
+  Star,
+  Users,
+  Home,
+  Briefcase,
+  GraduationCap,
+  TerminalSquare,
+  ChevronDown,
+  ChevronUp,
+  BookOpen,
+  Award,
+  Calendar,
+  MapPoint,
+  Palette,
+  Building2,
+} from 'reicon-react';
+import { FaLinkedin } from 'react-icons/fa6';
+import {
+  Github,
+  Gitlab,
+  X as XLogo,
+  Instagram as InstagramBrand,
+  Javascript,
+  Rust,
+  Figma,
+  Python,
+  Postgresql,
+  Mongodb,
+  Mysql,
+  Prisma,
+  Nextdotjs,
+  React as ReactBrand,
+  Html5,
+  Css,
+  Nodedotjs,
+  Git,
+  Linux,
+  Googlegemini,
+  type BrandIconFn,
+} from 'reicon-brands';
+
+function BrandIcon({ icon, size = 20, color, className }: { icon: BrandIconFn; size?: number; color?: string; className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={color || 'currentColor'}
+      className={className}
+      dangerouslySetInnerHTML={{ __html: icon.svgContent }}
+    />
+  );
+}
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -54,8 +112,8 @@ export default function App() {
     { id: 'projects', label: 'Projects', icon: Briefcase },
     { id: 'experience', label: 'Work', icon: Building2 },
     { id: 'education', label: 'Education', icon: GraduationCap },
-    { id: 'skills', label: 'Skills', icon: Terminal },
-    { id: 'contact', label: 'Contact', icon: Mail },
+    { id: 'skills', label: 'Skills', icon: TerminalSquare },
+    { id: 'contact', label: 'Contact', icon: Envelope },
   ];
 
   const scrollToSection = (id: string) => {
@@ -78,9 +136,9 @@ export default function App() {
       />
 
       <div className="max-w-4xl mx-auto px-6 py-6 pb-32 relative z-10">
-        
+
         {/* Navigation */}
-        <nav className="flex items-center justify-between mb-16 bg-white/40 backdrop-blur-xl px-5 py-3 rounded-full border border-slate-200/60 shadow-sm transition-all duration-300 pointer-events-auto">
+        <nav className="glass-nav flex items-center justify-between mb-16 px-5 py-3 rounded-full transition-all duration-300 pointer-events-auto">
           <div className="flex items-center">
             <span className="font-black text-xl md:text-2xl tracking-tight uppercase bg-gradient-to-r from-brand-pink via-brand-blue to-brand-green bg-clip-text text-transparent drop-shadow-[0_1px_0_rgba(0,0,0,0.08)]">
               zoxilsi
@@ -88,10 +146,10 @@ export default function App() {
           </div>
           <div className="flex items-center gap-4 md:gap-5">
             <a href="https://github.com/zoxilsi" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-foreground transition-colors duration-300 flex items-center justify-center">
-              <FaGithub size={20} />
+              <BrandIcon icon={Github} size={20} />
             </a>
             <a href="https://x.com/zoxilsi" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-black transition-colors duration-300 flex items-center justify-center">
-              <FaXTwitter size={20} />
+              <BrandIcon icon={XLogo} size={20} />
             </a>
             <a href="https://linkedin.com/in/zoxilsi" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#0A66C2] transition-colors duration-300 flex items-center justify-center">
               <FaLinkedin size={20} />
@@ -106,7 +164,7 @@ export default function App() {
                   <stop offset="100%" stopColor="#bc1888"/>
                 </linearGradient>
               </svg>
-              <Instagram size={20} className="text-slate-400 group-hover:text-transparent group-hover:stroke-[url(#insta-grad)] transition-all duration-300 insta-play" />
+              <BrandIcon icon={InstagramBrand} size={20} className="text-slate-400 group-hover:fill-[url(#insta-grad)] transition-all duration-300" />
             </a>
           </div>
         </nav>
@@ -114,11 +172,11 @@ export default function App() {
         {/* Intro */}
         <section id="home" className="mb-24 pt-4 relative flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1 relative z-10 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-full font-bold text-sm mb-8 shadow-sm text-foreground transition-transform hover:scale-105 duration-300">
+            <div className="glass-chip inline-flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm mb-8 text-foreground transition-transform hover:scale-105 duration-300">
               <Sparkles className="text-brand-magenta animate-pulse" size={18} />
               <span>A vibe coder & product engineer exploring AI</span>
             </div>
-            
+
             <h1 className="leading-[1.1]">
               <span className="block text-[60px] md:text-[88px] font-black tracking-tight text-foreground">
                 zoxilsi
@@ -127,12 +185,12 @@ export default function App() {
                 Making the web feel alive.
               </span>
             </h1>
-            
+
             <p className="mt-6 text-lg font-medium text-muted leading-relaxed max-w-xl mx-auto md:mx-0">
               Turning bold ideas into real products people use.
             </p>
           </div>
-          
+
           <div className="flex-shrink-0 relative w-56 md:w-72 mt-8 md:mt-0 group">
              <div className="polaroid z-20 group-hover:scale-105 transition-transform duration-300">
               <img src="/images/profile.png" alt="My Profile" className="polaroid-img" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'; }} />
@@ -149,21 +207,21 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px] mt-4">
+            <div className="soft-card overflow-hidden border border-white/60 hover:border-white/90 transition-colors flex flex-col group min-h-[300px] mt-4">
               <a href="https://studio.zoxilsi.cc/" target="_blank" rel="noreferrer" className="h-56 bg-gradient-to-br from-fuchsia-500/10 via-purple-500/10 to-cyan-500/10 relative overflow-hidden flex items-center justify-center p-4">
                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
                  <img src="/images/zoxilsi-studio.png" alt="zoxilsi studio" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                  <h3 className="hidden font-handwriting text-5xl text-fuchsia-600 font-bold rotate-[-2deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">studio</h3>
               </a>
-              <div className="p-6 flex flex-col flex-grow bg-white">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-2xl font-bold leading-tight">zoxilsi studio</h3>
                   <div className="flex gap-2">
-                    <a href="https://github.com/zoxilsi/studio" title="Source Code" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
-                      <FaGithub size={18} />
+                    <a href="https://github.com/zoxilsi/studio" title="Source Code" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
+                      <BrandIcon icon={Github} size={18} />
                     </a>
-                    <a href="https://studio.zoxilsi.cc/" title="Live Demo" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
-                      <ExternalLink size={18} />
+                    <a href="https://studio.zoxilsi.cc/" title="Live Demo" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
+                      <ArrowUpRightSquare size={18} />
                     </a>
                   </div>
                 </div>
@@ -181,7 +239,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px] relative mt-4">
+            <div className="soft-card overflow-hidden border border-white/60 hover:border-white/90 transition-colors flex flex-col group min-h-[300px] relative mt-4">
 
               {/* Gift Ribbon */}
               <div className="absolute -right-14 top-8 w-48 h-10 bg-[#111] border-y-4 border-[#D4AF37] rotate-45 z-30 shadow-2xl flex items-center justify-center pointer-events-none before:absolute before:inset-0 before:border-y before:border-dashed before:border-[#FFDF73]/50">
@@ -194,18 +252,18 @@ export default function App() {
                 <img src="/images/bananacv.png" alt="BananaCV" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                 <h3 className="hidden font-handwriting text-5xl text-brand-pink font-bold rotate-[-5deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">BananaCV</h3>
               </a>
-              <div className="p-6 flex flex-col flex-grow bg-white rounded-b-[1.3rem]">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-2xl font-bold leading-tight">BananaCV</h3>
                   <div className="flex gap-2">
-                    <a href="https://bananacv.fun/" title="Live Demo" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
-                      <ExternalLink size={18} />
+                    <a href="https://bananacv.fun/" title="Live Demo" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
+                      <ArrowUpRightSquare size={18} />
                     </a>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><Globe size={10} className="text-brand-blue" /> Web Tool</span>
-                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><SiReact size={10} color="#61DAFB" /> React</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><BrandIcon icon={ReactBrand} size={10} color="#61DAFB" /> React</span>
                 </div>
                 <ul className="text-muted font-medium mb-4 flex-grow text-sm list-disc pl-4 space-y-1.5 marker:text-brand-pink">
                   <li>A simple web tool to find common mistakes in resumes.</li>
@@ -215,24 +273,24 @@ export default function App() {
               </div>
             </div>
 
-            <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px] mt-4">
+            <div className="soft-card overflow-hidden border border-white/60 hover:border-white/90 transition-colors flex flex-col group min-h-[300px] mt-4">
               <a href="https://github.com/zoxilsi/Linara-Terminal" target="_blank" rel="noreferrer" className="h-56 bg-brand-yellow/10 relative overflow-hidden flex items-center justify-center p-4">
                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
                  <img src="/images/linara-terminal.png" alt="Linara Terminal" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                  <h3 className="hidden font-handwriting text-5xl text-brand-yellow font-bold rotate-[-2deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">Linara</h3>
               </a>
-              <div className="p-6 flex flex-col flex-grow bg-white">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-2xl font-bold leading-tight">Linara AI Terminal</h3>
                   <div className="flex gap-2">
-                    <a href="https://github.com/zoxilsi/Linara-Terminal" title="Source Code" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
-                      <FaGithub size={18} />
+                    <a href="https://github.com/zoxilsi/Linara-Terminal" title="Source Code" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
+                      <BrandIcon icon={Github} size={18} />
                     </a>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><SiRust size={10} color="#000000" /> Rust</span>
-                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><SiLinux size={10} color="#FCC624" /> CLI</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><BrandIcon icon={Rust} size={10} color="#000000" /> Rust</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><BrandIcon icon={Linux} size={10} color="#FCC624" /> CLI</span>
                   <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><Sparkles size={10} className="text-brand-magenta" /> AI</span>
                 </div>
                 <ul className="text-muted font-medium mb-4 flex-grow text-sm list-disc pl-4 space-y-1.5 marker:text-brand-yellow">
@@ -243,27 +301,27 @@ export default function App() {
               </div>
             </div>
 
-            <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px]">
+            <div className="soft-card overflow-hidden border border-white/60 hover:border-white/90 transition-colors flex flex-col group min-h-[300px]">
               <a href="https://mallu-key.vercel.app/" target="_blank" rel="noreferrer" className="h-56 bg-brand-blue/10 relative overflow-hidden flex items-center justify-center p-4">
                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
                  <img src="/images/mallukey.png" alt="malluKey" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                  <h3 className="hidden font-handwriting text-4xl text-brand-blue font-bold rotate-[3deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">malluKey</h3>
               </a>
-              <div className="p-6 flex flex-col flex-grow bg-white">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-2xl font-bold leading-tight">malluKey</h3>
                   <div className="flex gap-2">
-                    <a href="https://github.com/zoxilsi/malluKey" title="Source Code" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
-                      <FaGithub size={18} />
+                    <a href="https://github.com/zoxilsi/malluKey" title="Source Code" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
+                      <BrandIcon icon={Github} size={18} />
                     </a>
-                    <a href="https://mallu-key.vercel.app/" title="Live Demo" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
-                      <ExternalLink size={18} />
+                    <a href="https://mallu-key.vercel.app/" title="Live Demo" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
+                      <ArrowUpRightSquare size={18} />
                     </a>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><Globe size={10} className="text-brand-green" /> Web App</span>
-                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><SiJavascript size={10} color="#F7DF1E" /> Performance</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><BrandIcon icon={Javascript} size={10} color="#F7DF1E" /> Performance</span>
                 </div>
                 <ul className="text-muted font-medium mb-4 flex-grow text-sm list-disc pl-4 space-y-1.5 marker:text-brand-blue">
                   <li>Minimalist, ultra-responsive web application for Malayalam typing.</li>
@@ -273,25 +331,25 @@ export default function App() {
               </div>
             </div>
 
-            <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px]">
+            <div className="soft-card overflow-hidden border border-white/60 hover:border-white/90 transition-colors flex flex-col group min-h-[300px]">
               <a href="https://github.com/zoxilsi/vibe" target="_blank" rel="noreferrer" className="h-56 bg-indigo-50 relative overflow-hidden flex items-center justify-center p-4">
                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
                  <img src="/images/vibe.png" alt="Vibe Website Builder" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                  <h3 className="hidden font-handwriting text-5xl text-indigo-500 font-bold rotate-[-2deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">Vibe</h3>
               </a>
-              <div className="p-6 flex flex-col flex-grow bg-white">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-2xl font-bold leading-tight">Vibe</h3>
                   <div className="flex gap-2">
-                    <a href="https://github.com/zoxilsi/vibe" title="Source Code" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
-                      <FaGithub size={18} />
+                    <a href="https://github.com/zoxilsi/vibe" title="Source Code" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
+                      <BrandIcon icon={Github} size={18} />
                     </a>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><SiNextdotjs size={10} color="#000000" /> Next.js</span>
-                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><SiGooglegemini size={10} color="#8E75B2" /> Gemini AI</span>
-                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><Tags size={10} className="text-orange-500" /> E2B Sandboxes</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><BrandIcon icon={Nextdotjs} size={10} color="#000000" /> Next.js</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><BrandIcon icon={Googlegemini} size={10} color="#8E75B2" /> Gemini AI</span>
+                  <span className="px-2.5 py-1 border border-slate-200 text-slate-600 bg-white text-[10px] font-black uppercase rounded-md tracking-wider flex items-center gap-1.5"><Tag size={10} className="text-orange-500" /> E2B Sandboxes</span>
                 </div>
                 <ul className="text-muted font-medium mb-4 flex-grow text-sm list-disc pl-4 space-y-1.5 marker:text-indigo-500">
                   <li>AI-powered platform for generating fully functioning Next.js applications.</li>
@@ -301,21 +359,21 @@ export default function App() {
               </div>
             </div>
 
-            <div className="soft-card overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors flex flex-col group min-h-[300px]">
+            <div className="soft-card overflow-hidden border border-white/60 hover:border-white/90 transition-colors flex flex-col group min-h-[300px]">
               <a href="https://mca-rit.vercel.app/" target="_blank" rel="noreferrer" className="h-56 bg-emerald-500/10 relative overflow-hidden flex items-center justify-center p-4">
                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
                  <img src="/images/mca-study-materials.png" alt="MCA Study Materials" className="object-cover w-full h-full rounded-md shadow-md group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.classList.remove('hidden'); }} />
                  <h3 className="hidden font-handwriting text-4xl text-emerald-600 font-bold rotate-[-2deg] drop-shadow-sm transition-transform duration-500 group-hover:scale-110">MCA Notes</h3>
               </a>
-              <div className="p-6 flex flex-col flex-grow bg-white">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-2xl font-bold leading-tight">MCA Study Materials</h3>
                   <div className="flex gap-2">
-                    <a href="https://github.com/zoxilsi/MCA-STUDY-MATERIALS" title="Source Code" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
-                      <FaGithub size={18} />
+                    <a href="https://github.com/zoxilsi/MCA-STUDY-MATERIALS" title="Source Code" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
+                      <BrandIcon icon={Github} size={18} />
                     </a>
-                    <a href="https://mca-rit.vercel.app/" title="Live Demo" target="_blank" rel="noreferrer" className="p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-700 transition-all">
-                      <ExternalLink size={18} />
+                    <a href="https://mca-rit.vercel.app/" title="Live Demo" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
+                      <ArrowUpRightSquare size={18} />
                     </a>
                   </div>
                 </div>
@@ -345,7 +403,7 @@ export default function App() {
             <div className="h-0.5 flex-grow bg-slate-200"></div>
           </div>
 
-          <div className="soft-card p-6 bg-white border border-slate-200 hover:border-slate-300 transition-colors group">
+          <div className="soft-card p-6 border border-white/60 hover:border-white/90 transition-colors group">
             <div className="flex items-start justify-between gap-4 mb-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -355,7 +413,7 @@ export default function App() {
                 <div>
                   <h3 className="text-xl font-bold text-slate-800">Product Team</h3>
                   <a href="https://eduport.app" target="_blank" rel="noreferrer" className="text-slate-500 font-medium hover:text-orange-500 transition-colors inline-flex items-center gap-1.5">
-                    Eduport <ExternalLink size={12} />
+                    Eduport <ArrowUpRightSquare size={12} />
                   </a>
                 </div>
               </div>
@@ -381,16 +439,16 @@ export default function App() {
             </h2>
             <div className="h-0.5 flex-grow bg-slate-200"></div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="soft-card p-6 bg-white border border-slate-200 flex flex-col justify-between group">
+            <div className="soft-card p-6 border border-white/60 flex flex-col justify-between group">
               <div>
                 <div className="bg-brand-pink/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Award size={24} className="text-brand-pink" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800">Master of Computer Applications</h3>
                 <p className="text-slate-500 font-medium mt-2 flex items-center gap-2">
-                  <MapPin size={14} className="text-slate-400" />
+                  <MapPoint size={14} className="text-slate-400" />
                   Rajiv Gandhi Institute of Technology
                 </p>
               </div>
@@ -405,15 +463,15 @@ export default function App() {
                 </span>
               </div>
             </div>
-            
-            <div className="soft-card p-6 bg-white border border-slate-200 flex flex-col justify-between group">
+
+            <div className="soft-card p-6 border border-white/60 flex flex-col justify-between group">
               <div>
                 <div className="bg-brand-blue/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <BookOpen size={24} className="text-brand-blue" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800">Bachelor of Computer Science</h3>
                 <p className="text-slate-500 font-medium mt-2 flex items-center gap-2">
-                  <MapPin size={14} className="text-slate-400" />
+                  <MapPoint size={14} className="text-slate-400" />
                   Kannur University
                 </p>
               </div>
@@ -437,53 +495,53 @@ export default function App() {
             <h2 className="text-3xl font-black uppercase text-foreground">Skills</h2>
             <div className="h-0.5 flex-grow bg-slate-200"></div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="soft-card p-6 bg-white border border-slate-200">
+            <div className="soft-card p-6 border border-white/60">
               <h3 className="text-xl font-black mb-4 flex items-center gap-2">Languages</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiJavascript size={14} color="#F7DF1E" /> JavaScript</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiPython size={14} color="#3776AB" /> Python</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiRust size={14} color="#000000" /> Rust</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiPostgresql size={14} color="#4169E1" /> SQL</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Javascript} size={14} color="#F7DF1E" /> JavaScript</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Python} size={14} color="#3776AB" /> Python</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Rust} size={14} color="#000000" /> Rust</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Postgresql} size={14} color="#4169E1" /> SQL</span>
               </div>
             </div>
 
-            <div className="soft-card p-6 bg-white border border-slate-200">
+            <div className="soft-card p-6 border border-white/60">
               <h3 className="text-xl font-black mb-4 flex items-center gap-2">Frontend</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiReact size={14} color="#61DAFB" /> React.js</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiNextdotjs size={14} color="#000000" /> Next.js</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiHtml5 size={14} color="#E34F26" /> HTML</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiCss size={14} color="#1572B6" /> CSS</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={ReactBrand} size={14} color="#61DAFB" /> React.js</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Nextdotjs} size={14} color="#000000" /> Next.js</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Html5} size={14} color="#E34F26" /> HTML</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Css} size={14} color="#1572B6" /> CSS</span>
               </div>
             </div>
 
-            <div className="soft-card p-6 bg-white border border-slate-200">
+            <div className="soft-card p-6 border border-white/60">
               <h3 className="text-xl font-black mb-4 flex items-center gap-2">Backend</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiNodedotjs size={14} color="#339933" /> Node.js</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Nodedotjs} size={14} color="#339933" /> Node.js</span>
                 <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><Globe size={14} className="text-brand-blue" /> APIs</span>
               </div>
             </div>
 
-            <div className="soft-card p-6 bg-white border border-slate-200">
+            <div className="soft-card p-6 border border-white/60">
               <h3 className="text-xl font-black mb-4 flex items-center gap-2">Databases</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiMongodb size={14} color="#47A248" /> MongoDB</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiMysql size={14} color="#4479A1" /> MySQL</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiPrisma size={14} color="#2D3748" /> Prisma</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Mongodb} size={14} color="#47A248" /> MongoDB</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Mysql} size={14} color="#4479A1" /> MySQL</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Prisma} size={14} color="#2D3748" /> Prisma</span>
               </div>
             </div>
 
-            <div className="soft-card p-6 bg-white border border-slate-200 lg:col-span-2">
+            <div className="soft-card p-6 border border-white/60 lg:col-span-2">
               <h3 className="text-xl font-black mb-4 flex items-center gap-2">Tools & Other</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiGit size={14} color="#F05032" /> Git</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiLinux size={14} color="#FCC624" /> Linux</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiFigma size={14} color="#F24E1E" /> Figma</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><SiGooglegemini size={14} color="#8E75B2" /> Gemini AI</span>
-                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><Tags size={14} className="text-orange-500" /> E2B Sandboxes</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Git} size={14} color="#F05032" /> Git</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Linux} size={14} color="#FCC624" /> Linux</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Figma} size={14} color="#F24E1E" /> Figma</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><BrandIcon icon={Googlegemini} size={14} color="#8E75B2" /> Gemini AI</span>
+                <span className="px-3 py-1.5 border border-slate-200 text-slate-700 bg-slate-50 text-sm font-bold rounded-md flex items-center gap-2 hover:bg-slate-100 transition-colors"><Tag size={14} className="text-orange-500" /> E2B Sandboxes</span>
               </div>
             </div>
           </div>
@@ -496,38 +554,38 @@ export default function App() {
             <p className="text-muted font-medium mb-12 max-w-lg">
               Interested in building something together or just want to say hi? I'd love to hear from you.
             </p>
-            
+
             <div className="mb-16 flex flex-col items-center gap-6">
               <a href="https://linkedin.com/in/zoxilsi" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 px-8 py-4 bg-foreground hover:bg-gradient-to-r hover:from-brand-pink hover:via-brand-blue hover:to-brand-green text-white rounded-full font-bold shadow-sm transition-all duration-700 ease-in-out">
-                <FaLinkedin size={20} className="transition-transform duration-700 group-hover:rotate-12" /> 
-                <span>Send a Message</span> 
+                <FaLinkedin size={20} className="transition-transform duration-700 group-hover:rotate-12" />
+                <span>Send a Message</span>
                 <ArrowRight className="group-hover:translate-x-2 transition-transform duration-700" size={18} />
               </a>
-              
+
               <div className="flex flex-col items-center gap-2">
                 <p className="text-sm text-slate-500 font-medium">Fastest way to reach me for collaborations.</p>
-                <div className="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm font-bold text-slate-700 mt-1 hover:bg-slate-100 transition-colors duration-500">
-                  <Mail size={16} className="text-brand-pink" /> 
+                <div className="glass-chip flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-slate-700 mt-1 transition-colors duration-500">
+                  <Envelope size={16} className="text-brand-pink" />
                   <a href="mailto:hey.abhijith@gmail.com" className="hover:text-brand-blue transition-colors duration-500">hey.abhijith@gmail.com</a>
                 </div>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap justify-center gap-6">
               <a href="https://github.com/zoxilsi" target="_blank" rel="noreferrer" className="text-foreground/60 hover:text-foreground transition-all hover:scale-110">
-                <FaGithub size={28} />
+                <BrandIcon icon={Github} size={28} />
               </a>
               <a href="https://linkedin.com/in/zoxilsi" target="_blank" rel="noreferrer" className="text-foreground/60 hover:text-[#0A66C2] transition-all hover:scale-110">
                 <FaLinkedin size={28} />
               </a>
               <a href="https://x.com/zoxilsi" target="_blank" rel="noreferrer" className="text-foreground/60 hover:text-black transition-all hover:scale-110">
-                <FaXTwitter size={28} />
+                <BrandIcon icon={XLogo} size={28} />
               </a>
               <a href="https://instagram.com/zoxilsi" target="_blank" rel="noreferrer" className="text-foreground/60 hover:text-brand-pink transition-all hover:scale-110">
-                <FaInstagram size={28} />
+                <BrandIcon icon={InstagramBrand} size={28} />
               </a>
               <a href="https://gitlab.com/zoxilsi" target="_blank" rel="noreferrer" className="text-foreground/60 hover:text-[#FC6D26] transition-all hover:scale-110">
-                <FaGitlab size={28} />
+                <BrandIcon icon={Gitlab} size={28} />
               </a>
               <a href="https://zoxilsi.tech" target="_blank" rel="noreferrer" className="text-foreground/60 hover:text-brand-green transition-all hover:scale-110">
                 <Globe size={28} />
@@ -542,8 +600,8 @@ export default function App() {
           <p className="text-slate-500 text-sm mb-6 max-w-sm">
             Check out the source code and drop a star if you like it.
           </p>
-          <a href="https://github.com/zoxilsi/zoxilsi.cc" title="Star on GitHub" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-slate-50 text-slate-700 hover:text-foreground border border-slate-200/80 rounded-full font-bold shadow-sm transition-all hover:shadow-md group">
-            <FaGithub size={16} className="text-slate-500 group-hover:text-foreground transition-colors" />
+          <a href="https://github.com/zoxilsi/zoxilsi.cc" title="Star on GitHub" target="_blank" rel="noreferrer" className="glass-chip inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-slate-700 hover:text-foreground transition-all group">
+            <BrandIcon icon={Github} size={16} className="text-slate-500 group-hover:text-foreground transition-colors" />
             <span>Star the repo</span>
             {githubStars !== null && (
               <span className="bg-slate-100 flex items-center justify-center px-2 py-0.5 rounded-full ml-1 text-slate-600 font-mono text-[11px] font-black border border-slate-200/50 group-hover:bg-slate-200 transition-colors">
@@ -555,13 +613,13 @@ export default function App() {
         </div>
 
       </div>
-      
+
       {/* Floating Theme Menu */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-        
+
         {/* Mobile Dropdown Menu */}
         <div className="md:hidden relative flex flex-col items-center">
-          <div className={`absolute bottom-full mb-3 w-48 bg-[#121212] backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl p-2 flex flex-col gap-1 transition-all duration-300 z-40 ${isMobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+          <div className={`glass-dock absolute bottom-full mb-3 w-48 rounded-2xl p-2 flex flex-col gap-1 transition-all duration-300 z-40 ${isMobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
             {sectionItems.map((item) => {
               const isActive = activeSection === item.id;
               const Icon = item.icon;
@@ -582,10 +640,10 @@ export default function App() {
               );
             })}
           </div>
-          
-          <button 
+
+          <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="bg-[#121212] backdrop-blur-xl border border-white/10 shadow-2xl rounded-full px-6 py-3 flex items-center gap-3 justify-center text-white text-sm font-medium z-50 hover:bg-[#1a1a1a] transition-colors"
+            className="glass-dock rounded-full px-6 py-3 flex items-center gap-3 justify-center text-white text-sm font-medium z-50 transition-colors"
           >
             {(() => {
               const activeItem = sectionItems.find(i => i.id === activeSection);
@@ -605,7 +663,7 @@ export default function App() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex bg-[#121212] backdrop-blur-xl border border-white/10 shadow-2xl rounded-full px-6 py-3 items-center gap-3 justify-center">
+        <div className="glass-dock hidden md:flex rounded-full px-6 py-3 items-center gap-3 justify-center">
           {sectionItems.map((item) => {
             const isActive = activeSection === item.id;
             const Icon = item.icon;
@@ -627,7 +685,7 @@ export default function App() {
           })}
         </div>
       </div>
-      
+
     </div>
   );
 }

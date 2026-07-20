@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "lucide-react": "^0.412.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-icons": "^5.6.0"
+    "react-icons": "^5.6.0",
+    "reicon-brands": "^1.0.2",
+    "reicon-react": "^1.1.302"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
