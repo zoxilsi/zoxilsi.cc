@@ -26,8 +26,6 @@ const coreVariants: Variants = {
       duration: 1.15,
       ease: [0.77, 0, 0.175, 1],
       times: [0, 0.12, 0.32, 0.58, 1],
-      repeat: Infinity,
-      repeatDelay: 0.18,
     },
   },
 };
@@ -47,8 +45,6 @@ const raysVariants: Variants = {
       duration: 1.15,
       ease: [0.77, 0, 0.175, 1],
       times: [0, 0.12, 0.34, 0.62, 1],
-      repeat: Infinity,
-      repeatDelay: 0.18,
     },
   },
 };

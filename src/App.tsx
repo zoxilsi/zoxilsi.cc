@@ -62,20 +62,23 @@ type AnimatedIcon = ForwardRefExoticComponent<
 >;
 
 /**
- * Loops an animated icon continuously for as long as it is on screen, and
- * replays on hover. Passing a ref puts the icon into controlled mode, so hover
- * is re-wired by hand. Honours prefers-reduced-motion via useIconAnimation.
+ * Plays an animated icon once each time it scrolls into view, and again on
+ * hover. Pass `loop` to keep it cycling for as long as it is on screen.
+ * Passing a ref puts the icon into controlled mode, so hover is re-wired by
+ * hand. Honours prefers-reduced-motion via useIconAnimation.
  */
 function LiveIcon({
   icon: Icon,
   size,
   className,
   wrapperClassName,
+  loop = false,
 }: {
   icon: AnimatedIcon;
   size?: number;
   className?: string;
   wrapperClassName?: string;
+  loop?: boolean;
 }) {
   const handle = useRef<AnimatedIconHandle>(null);
   const host = useRef<HTMLDivElement>(null);
@@ -91,14 +94,16 @@ function LiveIcon({
     return () => io.disconnect();
   }, []);
 
-  // Keep looping for as long as the icon is on screen. startAnimation() no-ops
-  // while a pass is already running, so this picks it straight back up on finish.
+  // Play once on arrival. With `loop`, keep cycling while on screen -
+  // startAnimation() no-ops mid-run, so it resumes as each pass finishes.
   useEffect(() => {
     if (!inView) return;
     handle.current?.startAnimation();
+
+    if (!loop) return;
     const id = window.setInterval(() => handle.current?.startAnimation(), 400);
     return () => window.clearInterval(id);
-  }, [inView]);
+  }, [inView, loop]);
 
   return (
     <div ref={host} className={wrapperClassName ?? 'inline-flex'}>
@@ -107,6 +112,9 @@ function LiveIcon({
         size={size}
         className={className}
         onMouseEnter={() => handle.current?.startAnimation()}
+        onMouseLeave={() => {
+          if (!loop) handle.current?.stopAnimation();
+        }}
       />
     </div>
   );
@@ -286,7 +294,7 @@ export default function App() {
                       <BrandIcon icon={Github} size={18} />
                     </a>
                     <a href="https://studio.zoxilsi.cc/" title="Live Demo" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
-                      <LiveIcon icon={ExternalLinkIcon} size={18} />
+                      <LiveIcon icon={ExternalLinkIcon} size={18} loop />
                     </a>
                   </div>
                 </div>
@@ -324,7 +332,7 @@ export default function App() {
                   <h3 className="text-2xl font-bold leading-tight">BananaCV</h3>
                   <div className="flex gap-2">
                     <a href="https://bananacv.fun/" title="Live Demo" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
-                      <LiveIcon icon={ExternalLinkIcon} size={18} />
+                      <LiveIcon icon={ExternalLinkIcon} size={18} loop />
                     </a>
                   </div>
                 </div>
@@ -382,7 +390,7 @@ export default function App() {
                       <BrandIcon icon={Github} size={18} />
                     </a>
                     <a href="https://mallu-key.vercel.app/" title="Live Demo" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
-                      <LiveIcon icon={ExternalLinkIcon} size={18} />
+                      <LiveIcon icon={ExternalLinkIcon} size={18} loop />
                     </a>
                   </div>
                 </div>
@@ -440,7 +448,7 @@ export default function App() {
                       <BrandIcon icon={Github} size={18} />
                     </a>
                     <a href="https://mca-rit.vercel.app/" title="Live Demo" target="_blank" rel="noreferrer" className="glass-chip p-2 rounded-full text-slate-700 transition-all">
-                      <LiveIcon icon={ExternalLinkIcon} size={18} />
+                      <LiveIcon icon={ExternalLinkIcon} size={18} loop />
                     </a>
                   </div>
                 </div>

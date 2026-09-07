@@ -52,7 +52,6 @@ const createSteamVariants = ({
       delay,
       ease: 'linear',
       times: [0, 0.18, 0.32, 0.42, 0.48, 0.54, 0.68, 0.82, 1],
-      repeat: Infinity,
     },
   },
 });

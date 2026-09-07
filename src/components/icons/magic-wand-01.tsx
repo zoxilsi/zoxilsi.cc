@@ -34,7 +34,6 @@ const starVariants: Variants = {
     transition: {
       duration: 1.1,
       ease: 'easeInOut',
-      repeat: Infinity,
       delay: i * 0.4,
     },
   }),
@@ -48,7 +47,6 @@ const sparkleVariants: Variants = {
     transition: {
       duration: 1.1,
       ease: 'easeOut',
-      repeat: Infinity,
       delay: 0.2 + i * 0.5,
     },
   }),
