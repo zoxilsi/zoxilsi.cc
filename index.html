@@ -7,20 +7,20 @@
     <meta name="color-scheme" content="dark" />
     <meta name="description" content="Abhijith, a.k.a. zoxilsi. Understanding what people need, figuring out what matters, and turning it into something useful." />
     <meta property="og:title" content="zoxilsi — Things worth making" />
-    <meta property="og:description" content="Good questions. Things worth making. Products, experiments, and the person behind zoxilsi." />
+    <meta property="og:description" content="Abhijith, a.k.a. zoxilsi. Understanding what people need, figuring out what matters, and turning it into something useful." />
     <meta property="og:type" content="website" />
     <title>zoxilsi — Things worth making</title>
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg?v=5" />
-    <link rel="preload" href="./assets/fonts/plex-mono.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="preload" href="./assets/fonts/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="./styles.css" />
-    <script type="module" src="./app.js"></script>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=5" />
+    <link rel="preload" href="/assets/fonts/plex-mono.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/assets/fonts/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.js"></script>
   </head>
-  <body>
+  <body class="page-home" data-page="home">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="identity" href="#home" aria-label="zoxilsi, back to the top"><span class="name-highlight">zoxilsi</span><span class="identity-role">Curiosity, put to work.</span></a>
-      <nav class="main-nav" aria-label="Main navigation"><a href="#work" data-nav="work"><span class="nav-number" aria-hidden="true">01</span>Work</a><a href="#about" data-nav="about"><span class="nav-number" aria-hidden="true">02</span>About</a><a href="#contact" data-nav="contact"><span class="nav-number" aria-hidden="true">03</span>Contact</a></nav>
+      <a class="identity" href="/" aria-label="zoxilsi, home" aria-current="page"><span class="name-highlight">zoxilsi</span><span class="identity-role">Curiosity, put to work.</span></a>
+      <nav class="main-nav" aria-label="Main navigation"><a href="/work" data-nav="work"><span class="nav-number" aria-hidden="true">01</span>Work</a><a href="/about" data-nav="about"><span class="nav-number" aria-hidden="true">02</span>About</a><a href="/contact" data-nav="contact"><span class="nav-number" aria-hidden="true">03</span>Contact</a></nav>
     </header>
     <div class="page-grid" aria-hidden="true"></div>
     <div class="page-grain" aria-hidden="true"></div>
@@ -28,88 +28,21 @@
     <main id="main" tabindex="-1">
       <section id="home" class="hero" aria-labelledby="hero-heading">
         <div class="hero-copy">
-          <div class="hero-signature"><img class="hero-mark" src="./assets/mark.svg" alt="" width="58" height="58" /><span class="hero-edition">A personal collection<br />of questions &amp; things.</span></div>
+          <div class="hero-signature"><img class="hero-mark" src="/assets/mark.svg" alt="" width="58" height="58" /><span class="hero-edition">A personal collection<br />of questions &amp; things.</span></div>
           <h1 id="hero-heading">Good questions.<br /><span class="annotated-word">Things worth making.<svg viewBox="0 0 170 13" fill="none" aria-hidden="true"><path d="M3 8c36-6 98-6 161-3M9 12c41-5 97-6 151-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></span></h1>
           <p class="hero-intro">I’m Abhijith, a.k.a. <span class="name-highlight">zoxilsi</span>.<br />I like understanding what people need, figuring out what matters, and turning it into something useful.</p>
-          <p class="current-work">Currently helping students learn and practise at <a href="#eduport-work">Eduport</a>.</p>
-          <a class="work-jump" href="#work">Explore the work <span aria-hidden="true">↘</span></a>
+          <p class="current-work">Currently helping students learn and practise at <a href="/work#eduport-work">Eduport</a>.</p>
+          <a class="work-jump" href="/work">Explore the work <span aria-hidden="true">↘</span></a>
         </div>
         <figure class="portrait">
-          <button class="portrait-image" type="button" aria-pressed="false" aria-label="Show portrait in colour"><img src="./assets/portrait.webp" width="526" height="568" alt="Abhijith, the person behind zoxilsi" fetchpriority="high" /></button>
+          <button class="portrait-image" type="button" aria-pressed="false" aria-label="Show portrait in colour"><img src="/assets/portrait.webp" width="526" height="568" alt="Abhijith, the person behind zoxilsi" fetchpriority="high" /></button>
           <figcaption><span>Abhijith / zoxilsi</span><span class="hover-hint">Hover for colour</span><span class="tap-hint">Tap for colour</span></figcaption>
           <p class="portrait-note handwritten" aria-hidden="true"><svg viewBox="0 0 54 34" fill="none"><path d="M48 30C25 30 17 18 13 4m0 0L5 16m8-12 10 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="handwriting-text" data-handwriting>the person behind the projects.</span></p>
         </figure>
-        <div class="thinking-notes">
-          <p class="eyebrow">A question before the work</p>
-          <div class="thinking-controls" data-thinking-controls role="group" aria-label="How I approach an idea" hidden>
-            <button type="button" data-thinking-step="people" aria-pressed="true"><span aria-hidden="true">01</span> People</button>
-            <button type="button" data-thinking-step="focus" aria-pressed="false"><span aria-hidden="true">02</span> Focus</button>
-            <button type="button" data-thinking-step="make" aria-pressed="false"><span aria-hidden="true">03</span> Make</button>
-          </div>
-          <div id="thinking-content" role="status" aria-live="polite" aria-atomic="true"><p id="thinking-title">Who is this for?</p><p id="thinking-copy">A real person, a real need. That’s where I like to start.</p></div>
-        </div>
         <nav class="hero-social" aria-label="Find me elsewhere"><a href="https://github.com/zoxilsi" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/zoxilsi" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/zoxilsi" target="_blank" rel="noopener noreferrer">Twitter ↗</a><a href="mailto:hey.abhijith@gmail.com">hey.abhijith@gmail.com ↗</a></nav>
       </section>
-
-      <section id="work" class="work-section section" aria-labelledby="work-heading">
-        <header class="section-heading"><div><p class="section-tag"><span>01</span> Work</p><h2 id="work-heading">Selected work.</h2></div><p>An easier way to create,<br />learn, or get something done.</p></header>
-        <article id="eduport-work" class="eduport-work" aria-labelledby="eduport-heading">
-          <header class="eduport-overview">
-            <p class="eyebrow">Professional work / 01</p>
-            <h3 id="eduport-heading"><a href="https://eduport.ai" target="_blank" rel="noopener noreferrer">Eduport <span aria-hidden="true">↗</span></a></h3>
-            <p class="eduport-meta">K–12 EdTech · May 2026 — now</p>
-            <p class="eduport-context">Working on how students learn and practise, from exam preparation to adaptive AI.</p>
-            <p class="eduport-scale"><span>700K+</span> platform downloads</p>
-            <p class="eduport-annotation handwritten" aria-hidden="true"><span class="handwriting-text" data-handwriting>big questions. small decisions.</span></p>
-          </header>
-          <div class="eduport-detail">
-            <p class="eduport-intro">Taking ideas from the problem and the spec through to shipping, working closely with design and engineering.</p>
-            <div class="eduport-notes" role="group" aria-label="Product stories from Eduport">
-              <details class="work-note" name="eduport-notes" open>
-                <summary><span class="note-number">01</span><span class="note-label">Practice before the pressure.<small>JEE mock platform</small></span><span class="note-state">Shipped</span><span class="note-toggle" aria-hidden="true">+</span></summary>
-                <div class="note-body"><p class="note-question">Why meet exam pressure for the first time on exam day?</p><p>Pitched and launched a JEE-style mock platform so students could practise under exam conditions before the real thing.</p></div>
-              </details>
-              <details class="work-note" name="eduport-notes">
-                <summary><span class="note-number">02</span><span class="note-label">Practice that meets the student.<small>Adapt AI</small></span><span class="note-state">AI</span><span class="note-toggle" aria-hidden="true">+</span></summary>
-                <div class="note-body"><p class="note-question">What if practice paid attention to where you struggle?</p><p>Worked with the AI team on Adapt AI, shaping practice around each student’s difficulties and testing applied AI ideas against real learning problems.</p></div>
-              </details>
-              <details class="work-note" name="eduport-notes">
-                <summary><span class="note-number">03</span><span class="note-label">From marks to insight.<small>Exam platform</small></span><span class="note-state">Shipped</span><span class="note-toggle" aria-hidden="true">+</span></summary>
-                <div class="note-body"><p class="note-question">What comes after a score?</p><p>Shipped an exam platform that turns marks into useful insights and keeps parents in the loop.</p></div>
-              </details>
-              <details class="work-note" name="eduport-notes">
-                <summary><span class="note-number">04</span><span class="note-label">Learning that feels like play.<small>3D textbooks</small></span><span class="note-state">Exploring</span><span class="note-toggle" aria-hidden="true">+</span></summary>
-                <div class="note-body"><p class="note-question">What if learning felt like play?</p><p>Building 3D textbooks around that question, exploring a learning experience students want to spend time with.</p></div>
-              </details>
-              <details class="work-note" name="eduport-notes">
-                <summary><span class="note-number">05</span><span class="note-label">Less work behind the scenes.<small>Internal tools &amp; AI</small></span><span class="note-state">Building</span><span class="note-toggle" aria-hidden="true">+</span></summary>
-                <div class="note-body"><p class="note-question">What could make an ordinary workday a little lighter?</p><p>Building internal tools and AI automations that lighten everyday work for the Eduport team.</p></div>
-              </details>
-            </div>
-          </div>
-        </article>
-        <div class="work-group-heading"><p class="work-group-label eyebrow">Independent products &amp; experiments</p><p class="handwritten" aria-hidden="true"><span class="handwriting-text" data-handwriting>ideas that made it out of my notes.</span></p></div>
-        <div id="featured-project"></div>
-        <div class="index-heading"><h3>More to explore.</h3><span class="eyebrow">Small ideas. Real things.</span></div>
-        <div id="project-index" class="project-index"></div>
-        <noscript><div class="project-fallback"><a href="https://studio.zoxilsi.cc/">studio ↗</a><a href="https://bananacv.fun/">BananaCV ↗</a><a href="https://github.com/zoxilsi/Linara-Terminal">Linara ↗</a><a href="https://mallu-key.vercel.app/">malluKey ↗</a><a href="https://github.com/zoxilsi/vibe">Vibe ↗</a><a href="https://mca-rit.vercel.app/">MCA Study Materials ↗</a></div></noscript>
-        <a class="more-work" href="https://github.com/zoxilsi" target="_blank" rel="noopener noreferrer">More experiments on GitHub <span aria-hidden="true">↗</span></a>
-      </section>
-
-      <section id="about" class="about-section section" aria-labelledby="about-heading">
-        <p class="section-tag"><span>02</span> About</p>
-        <div class="about-layout">
-          <div class="about-content"><h2 id="about-heading">A little about me.</h2><p class="about-intro">I enjoy figuring out who something is for, what problem matters, and what can wait.</p><p class="about-description">At <a href="https://eduport.ai" target="_blank" rel="noopener noreferrer">Eduport ↗</a>, that means working on how students learn and practise, from JEE-style mocks to adaptive AI and exam insights. I bring the same curiosity to my own projects, using design, code, and AI to turn ideas into something people can try.</p><p class="about-note handwritten" aria-hidden="true"><span class="handwriting-text" data-handwriting>always following a what if.</span></p></div>
-          <div class="background-content"><div class="experience"><h3 class="eyebrow">Along the way</h3><div class="experience-entry"><div><h4>Product Engineer</h4><p>Eduport · Full time</p></div><span class="experience-date">Aug 2026 — now</span></div><div class="experience-entry"><div><h4>Product Manager</h4><p>Eduport</p></div><span class="experience-date">May — Aug 2026</span></div></div><div class="education"><h3 class="eyebrow">The foundations</h3><p>Master of Computer Applications <span>Rajiv Gandhi Institute of Technology · 2024–2026</span></p><p>Bachelor of Computer Science <span>Kannur University</span></p></div></div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-section section" aria-labelledby="contact-heading">
-        <p class="section-tag"><span>03</span> Contact</p>
-        <div class="contact-layout"><div><h2 id="contact-heading">Let’s make something<br /><span class="accent-word">worth using.</span></h2><div class="contact-email"><a href="mailto:hey.abhijith@gmail.com">hey.abhijith@gmail.com ↗</a><button id="copy-email" class="copy-email" type="button" aria-label="Copy email address">Copy address <span aria-hidden="true">⧉</span></button></div></div><nav class="social-links" aria-label="Social profiles"><a href="https://github.com/zoxilsi" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/zoxilsi" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/zoxilsi" target="_blank" rel="noopener noreferrer">Twitter ↗</a></nav></div>
-      </section>
     </main>
-    <footer class="site-footer"><div class="footer-meta"><div class="footer-meta-details"><span>© 2026 zoxilsi</span><div id="visitor-counter" class="visitor-counter" data-state="loading" role="group" aria-labelledby="visitor-count-label" title="Visitor count is loading"><output id="visitor-count" class="visitor-count" aria-live="polite" aria-atomic="true" aria-label="Visitor count is loading">—</output><span id="visitor-count-label">Total visitors</span><span id="visitor-count-status" class="sr-only" role="status">Loading count…</span></div></div><a href="#home">Back to the top ↑</a></div></footer>
+    <footer class="site-footer"><div class="footer-meta"><div class="footer-meta-details"><span>© 2026 zoxilsi</span><div id="visitor-counter" class="visitor-counter" data-state="loading" role="group" aria-labelledby="visitor-count-label" title="Visitor count is loading"><output id="visitor-count" class="visitor-count" aria-live="polite" aria-atomic="true" aria-label="Visitor count is loading">—</output><span id="visitor-count-label">Total visitors</span><span id="visitor-count-status" class="sr-only" role="status">Loading count…</span></div></div><a href="#main">Back to the top ↑</a></div></footer>
     <p id="status-message" class="sr-only" role="status" aria-live="polite"></p>
   </body>
 </html>

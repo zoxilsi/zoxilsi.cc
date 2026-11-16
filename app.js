@@ -125,12 +125,16 @@ document.querySelector('.skip-link')?.addEventListener('click', event => {
   main?.scrollIntoView({ behavior: 'instant', block: 'start' });
 });
 
-for (const link of document.querySelectorAll('a[href^="#"]:not(.skip-link)')) {
+for (const link of document.querySelectorAll('a[href*="#"]:not(.skip-link)')) {
   link.addEventListener('click', event => {
     if (!isPlainClick(event) || event.detail !== 0 || link.target === '_blank') return;
     let target;
-    try { target = byId(decodeURIComponent(link.hash.slice(1))); } catch { return; }
-    const heading = target?.querySelector('h1, h2') || target;
+    try {
+      const destination = new URL(link.href, location.href);
+      if (destination.origin !== location.origin || destination.pathname !== location.pathname || destination.search !== location.search) return;
+      target = byId(decodeURIComponent(destination.hash.slice(1)));
+    } catch { return; }
+    const heading = target?.querySelector('h1, h2, h3') || target;
     if (!heading) return;
     requestAnimationFrame(() => {
       heading.tabIndex = -1;
@@ -142,17 +146,9 @@ for (const link of document.querySelectorAll('a[href^="#"]:not(.skip-link)')) {
 const root = document.documentElement;
 const siteHeader = document.querySelector('.site-header');
 const navLinks = document.querySelectorAll('[data-nav]');
-const sections = ['home', 'work', 'about', 'contact'].map(byId).filter(Boolean);
+const pages = new Set(['home', 'work', 'about', 'contact']);
 let headerHeight = -1;
-let navFrame = null;
 let layoutFrame = null;
-
-function viewport() {
-  return {
-    height: window.visualViewport?.height || window.innerHeight,
-    top: window.visualViewport?.offsetTop || 0,
-  };
-}
 
 function measureHeader() {
   const height = siteHeader ? Math.ceil(siteHeader.getBoundingClientRect().height) : 0;
@@ -161,31 +157,15 @@ function measureHeader() {
   if (siteHeader) root.style.setProperty('--header-height', `${height}px`);
 }
 
-function updateCurrentSection() {
-  navFrame = null;
-  const visible = viewport();
-  const remaining = Math.max(0, visible.height - headerHeight - 20);
-  const marker = visible.top + Math.min(visible.height - 1, headerHeight + 20 + Math.min(40, remaining * 0.1));
-  let current = 'home';
-  for (const section of sections) {
-    if (section.getBoundingClientRect().top <= marker) current = section.id;
-  }
-  const scroller = document.scrollingElement || root;
-  const atEnd = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 2;
-  const contact = byId('contact');
-  if (atEnd && contact && contact.getBoundingClientRect().top < visible.top + visible.height) current = 'contact';
+function updateCurrentPage() {
+  const pathPage = location.pathname.replace(/\/+$/, '').split('/').pop().replace(/\.html$/i, '').toLowerCase();
+  const declaredPage = document.body.dataset.page;
+  const current = pages.has(declaredPage) ? declaredPage : pages.has(pathPage) ? pathPage : 'home';
   for (const link of navLinks) {
-    if (link.dataset.nav === current) link.setAttribute('aria-current', 'location');
+    if (link.dataset.nav === current) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   }
 }
-
-function scheduleNavUpdate() {
-  if (navFrame === null) navFrame = requestAnimationFrame(updateCurrentSection);
-}
-
-window.addEventListener('scroll', scheduleNavUpdate, { passive: true });
-window.addEventListener('hashchange', scheduleNavUpdate);
 
 // Desktop colour is a CSS hover/focus treatment. Touch users get explicit
 // buttons, while every project image link keeps its normal destination.
@@ -217,7 +197,7 @@ function resetColourControls() {
 function refreshLayout() {
   layoutFrame = null;
   measureHeader();
-  scheduleNavUpdate();
+  updateCurrentPage();
 }
 
 function scheduleLayoutUpdate() {
@@ -228,15 +208,14 @@ window.addEventListener('resize', scheduleLayoutUpdate);
 window.addEventListener('orientationchange', scheduleLayoutUpdate);
 window.addEventListener('load', scheduleLayoutUpdate);
 window.visualViewport?.addEventListener('resize', scheduleLayoutUpdate);
-window.visualViewport?.addEventListener('scroll', scheduleLayoutUpdate, { passive: true });
 if (typeof touchMedia?.addEventListener === 'function') {
   touchMedia.addEventListener('change', resetColourControls);
 } else if (typeof touchMedia?.addListener === 'function') {
   touchMedia.addListener(resetColourControls);
 }
-if ('ResizeObserver' in window) {
+if ('ResizeObserver' in window && siteHeader) {
   const layoutObserver = new ResizeObserver(scheduleLayoutUpdate);
-  for (const target of [siteHeader, ...sections, ...portraits].filter(Boolean)) layoutObserver.observe(target);
+  layoutObserver.observe(siteHeader);
 }
 document.fonts?.ready.then(scheduleLayoutUpdate, () => {});
 document.addEventListener('visibilitychange', () => {
@@ -271,9 +250,8 @@ copyEmail?.addEventListener('click', async () => {
 });
 
 window.addEventListener('pagehide', () => {
-  if (navFrame !== null) cancelAnimationFrame(navFrame);
   if (layoutFrame !== null) cancelAnimationFrame(layoutFrame);
-  navFrame = layoutFrame = null;
+  layoutFrame = null;
   resetCopyFeedback();
 });
 window.addEventListener('pageshow', scheduleLayoutUpdate);

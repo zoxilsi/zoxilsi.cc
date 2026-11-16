@@ -31,13 +31,14 @@ export async function initVisitorCounter() {
 
     try {
       const configured = document.querySelector('meta[name="visitor-counter-endpoint"]')?.content.trim();
-      const endpoint = new URL(configured || './api/visitors', document.baseURI);
+      const endpoint = new URL(configured || '/api/visitors', document.baseURI);
       if (endpoint.origin !== location.origin) throw new Error('Counter endpoint must use the same origin');
 
       const response = await fetch(endpoint.href, {
         method,
         credentials: 'same-origin',
         cache: 'no-store',
+        keepalive: method === 'POST',
         headers: { Accept: 'application/json' },
         signal: controller.signal,
       });

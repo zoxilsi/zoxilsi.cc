@@ -16,6 +16,19 @@ const visitorStore = createVisitorStore({
   mode: process.env.VISITOR_COUNT_MODE || 'unique',
 });
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.woff2': 'font/woff2', '.ttf': 'font/ttf', '.txt': 'text/plain; charset=utf-8' };
+const pages = new Map([
+  ['/', 'index.html'],
+  ['/work', 'work.html'],
+  ['/about', 'about.html'],
+  ['/contact', 'contact.html'],
+]);
+const pageAliases = new Map([
+  ['/index.html', '/'],
+  ...['work', 'about', 'contact'].flatMap(page => [
+    [`/${page}.html`, `/${page}`],
+    [`/${page}/`, `/${page}`],
+  ]),
+]);
 
 function json(response, status, body, headers = {}) {
   response.writeHead(status, {
@@ -71,12 +84,17 @@ async function visitors(request, response) {
 
 const server = createServer(async (request, response) => {
   try {
-    const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
+    const url = new URL(request.url, 'http://localhost');
+    const pathname = decodeURIComponent(url.pathname);
     if (pathname === '/api/visitors') {
       await visitors(request, response);
       return;
     }
-    const file = resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);
+    if (pageAliases.has(pathname)) {
+      response.writeHead(308, { Location: `${pageAliases.get(pathname)}${url.search}` }).end();
+      return;
+    }
+    const file = resolve(root, pages.get(pathname) || `.${pathname}`);
     if (!file.startsWith(root.endsWith(sep) ? root : root + sep)) {
       response.writeHead(403).end('Forbidden');
       return;
