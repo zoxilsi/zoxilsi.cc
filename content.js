@@ -1,0 +1,71 @@
+// The portfolio's project content. Add or reorder entries here.
+// Images and project facts come from zoxilsi.cc; descriptions explain each use case.
+export const projects = [
+  {
+    name: 'studio',
+    description: 'Create mesh gradients for your designs. Shape colours in the browser with real-time WebGL, then export images, video, code, or editable project files.',
+    category: 'Design · Gradients',
+    number: '01',
+    url: 'https://studio.zoxilsi.cc/',
+    image: './assets/projects/studio.webp',
+    width: 1440,
+    height: 827,
+  },
+  {
+    name: 'BananaCV',
+    description: 'Get a second opinion before you send your résumé. Upload a CV to find common mistakes and see what to improve.',
+    category: 'Career · Résumé feedback',
+    number: '02',
+    url: 'https://bananacv.fun/',
+    image: './assets/projects/bananacv.webp',
+    width: 1440,
+    height: 749,
+  },
+  {
+    name: 'Linara',
+    description: 'Tell your terminal what you want to do in plain English. Linara turns the request into command-line instructions with AI, in a terminal built in Rust.',
+    category: 'Workflow · Terminal',
+    number: '03',
+    url: 'https://github.com/zoxilsi/Linara-Terminal',
+    image: './assets/projects/linara.webp',
+    width: 1440,
+    height: 749,
+  },
+  {
+    name: 'malluKey',
+    description: 'Get familiar with Malayalam typing. Practise with an interactive keyboard map and compare your results on a global leaderboard.',
+    category: 'Language · Typing practice',
+    number: '04',
+    url: 'https://mallu-key.vercel.app/',
+    image: './assets/projects/mallukey.webp',
+    width: 1440,
+    height: 749,
+  },
+  {
+    name: 'Vibe',
+    description: 'Turn a written idea into an application you can try. Generate Next.js apps and React components from prompts, using AI and isolated cloud sandboxes.',
+    category: 'Prototyping · AI',
+    number: '05',
+    url: 'https://github.com/zoxilsi/vibe',
+    image: './assets/projects/vibe.webp',
+    width: 1351,
+    height: 766,
+  },
+  {
+    name: 'MCA Study Materials',
+    description: 'Find notes and past exam questions for your KTU MCA courses. A shared, open-source resource for studying and preparing for exams.',
+    category: 'Learning · Study resources',
+    number: '06',
+    url: 'https://mca-rit.vercel.app/',
+    image: './assets/projects/mca.webp',
+    width: 1440,
+    height: 763,
+  },
+];
+
+export const socials = {
+  github: 'https://github.com/zoxilsi',
+  linkedin: 'https://linkedin.com/in/zoxilsi',
+  twitter: 'https://x.com/zoxilsi',
+  email: 'hey.abhijith@gmail.com',
+};

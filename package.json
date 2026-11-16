@@ -1,31 +1,17 @@
 {
-  "name": "new_portfolio",
+  "name": "zoxilsi-portfolio",
+  "version": "3.0.1",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "description": "A personal corner of the internet. Built for zoxilsi.",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs --dist",
+    "test": "node --test scripts/visitor-store.test.mjs"
   },
-  "dependencies": {
-    "@vercel/analytics": "^2.0.1",
-    "motion": "^13.2.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.6.0",
-    "reicon-brands": "^1.0.2",
-    "reicon-react": "^1.1.302"
-  },
-  "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.39",
-    "tailwindcss": "^3.4.6",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.4"
+  "engines": {
+    "node": ">=20"
   }
 }
