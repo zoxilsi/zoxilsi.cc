@@ -2,9 +2,9 @@
 
 A personal portfolio for zoxilsi, built around Abhijith’s products, experiments, and portrait from [zoxilsi.cc](https://www.zoxilsi.cc/).
 
-Four separate pages share a compact monospaced design. The homepage focuses on the introduction, portrait, and social links. Work, background, and contact details have their own pages. Blue and black accents sit over a dark charcoal background. Portrait and project images start in monochrome and reveal their original colour through interaction.
+Four separate pages keep the live site’s compact monospaced design. Copy is reduced to a short introduction, role, concise project descriptions, and contact details. The homepage focuses on the name, role, portrait, and social links. Repeated slogans, handwritten notes, and detailed product stories have been removed. Work, background, and contact details have their own pages. Blue and black accents sit over a dark charcoal background. Portrait and project images start in monochrome and reveal their original colour through interaction.
 
-The writing emphasizes people’s needs, priorities, and useful products. Project descriptions start with what each tool helps someone do; technical skills support that story. Official job titles remain in the work history.
+Project descriptions are a single short sentence. Official job titles remain in the work history. The dark layout, blue accents, portrait, project images, and visitor counter are preserved. The alternative light redesign remains on `redesign/benji-inspired`; this update starts from the live `main` version.
 
 The Eduport section draws on the supplied CV: JEE-style mock tests, Adapt AI, exam insights, 3D textbooks, and internal tools and AI automations. The 700K+ figure describes platform downloads. Current work is distinguished from shipped products, and the personal CV file is not included in the website build.
 
@@ -45,14 +45,14 @@ Stop the development server first, or pass `-- --port 3001` to use a different p
 ## Make it yours
 
 - `index.html` — focused homepage with the introduction, portrait, and social links.
-- `work.html` — expandable Eduport stories, featured project, and visual project grid.
-- `about.html` — bio, work history, education, and thinking prompts.
+- `work.html` — current role, featured project, and visual project grid.
+- `about.html` — short bio, work history, and education.
 - `contact.html` — email, address-copy action, and social profiles.
 - `content.js` — project descriptions, order, screenshots, URLs, and project numbers.
 - `styles.css` — dark charcoal appearance with blue and black accents, layout, responsive breakpoints, and typography. Palette variables are at the top of the file.
 - `app.js` — project rendering, image colour controls, and email copy.
-- `thinking-notes.js` — switches the About page’s People, Focus, and Make prompts with accessible native buttons.
-- `handwriting.js` — draws the four blue annotations as pen strokes when they first come into view.
+- `thinking-notes.js` — retained source for the earlier thinking prompts; the simplified pages do not use it.
+- `handwriting.js` — retained support for the earlier handwritten annotations.
 - `visitor-counter.js` — fetches and displays the shared visitor total in the footer.
 - `api/visitors.js` — same-origin Vercel endpoint for the persistent shared counter.
 - `scripts/visitor-redis-store.mjs` — atomically records and deduplicates visitors in Redis.
@@ -61,9 +61,7 @@ Stop the development server first, or pass `-- --port 3001` to use a different p
 - `scripts/serve.mjs` — serves clean local page routes and the local visitor backend.
 - `assets/` — locally stored images and fonts, including font license notices.
 
-**Home** (`/`), **Work** (`/work`), **About** (`/about`), and **Contact** (`/contact`) are separate HTML documents. The shared header uses normal site links, with no JavaScript router. Each page has one main heading, and its current navigation link uses `aria-current="page"`. The homepage’s Eduport link opens `/work#eduport-work` directly. Eduport contributions use native expandable stories, pairing a product question with the work behind it. Personal projects appear in a visual grid, with each entry linking to its live product or source code. Interface colours use the shared palette variables.
-
-The About page’s **People**, **Focus**, and **Make** buttons switch between short questions about approaching an idea. The default question remains readable without JavaScript, and the controls appear only after initialization.
+**Home** (`/`), **Work** (`/work`), **About** (`/about`), and **Contact** (`/contact`) are separate HTML documents. The shared header uses normal site links, with no JavaScript router. Each page has one main heading, and its current navigation link uses `aria-current="page"`. The homepage’s Eduport link opens `/work#eduport-work` directly. Eduport work is summarized in one sentence. Personal projects appear in a visual grid, with each entry linking to its live product or source code. Interface colours use the shared palette variables.
 
 Locally served IBM Plex Mono gives the introduction, navigation, and supporting text a compact, consistent rhythm. Type uses relative units so browser text-size preferences are respected. Navigation, project actions, and footer links have 44px touch targets; sticky-header measurements keep section links clear as the layout changes. The page accounts for phone safe areas and reduced-motion preferences.
 

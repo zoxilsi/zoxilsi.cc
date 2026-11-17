@@ -3,7 +3,7 @@
 export const projects = [
   {
     name: 'studio',
-    description: 'Create mesh gradients for your designs. Shape colours in the browser with real-time WebGL, then export images, video, code, or editable project files.',
+    description: 'A mesh gradient tool for designers.',
     category: 'Design · Gradients',
     number: '01',
     url: 'https://studio.zoxilsi.cc/',
@@ -13,7 +13,7 @@ export const projects = [
   },
   {
     name: 'BananaCV',
-    description: 'Get a second opinion before you send your résumé. Upload a CV to find common mistakes and see what to improve.',
+    description: 'Quick feedback for your résumé.',
     category: 'Career · Résumé feedback',
     number: '02',
     url: 'https://bananacv.fun/',
@@ -23,7 +23,7 @@ export const projects = [
   },
   {
     name: 'Linara',
-    description: 'Tell your terminal what you want to do in plain English. Linara turns the request into command-line instructions with AI, in a terminal built in Rust.',
+    description: 'An AI terminal built in Rust.',
     category: 'Workflow · Terminal',
     number: '03',
     url: 'https://github.com/zoxilsi/Linara-Terminal',
@@ -33,7 +33,7 @@ export const projects = [
   },
   {
     name: 'malluKey',
-    description: 'Get familiar with Malayalam typing. Practise with an interactive keyboard map and compare your results on a global leaderboard.',
+    description: 'Practise typing in Malayalam.',
     category: 'Language · Typing practice',
     number: '04',
     url: 'https://mallu-key.vercel.app/',
@@ -43,7 +43,7 @@ export const projects = [
   },
   {
     name: 'Vibe',
-    description: 'Turn a written idea into an application you can try. Generate Next.js apps and React components from prompts, using AI and isolated cloud sandboxes.',
+    description: 'Turn prompts into working apps.',
     category: 'Prototyping · AI',
     number: '05',
     url: 'https://github.com/zoxilsi/vibe',
@@ -53,7 +53,7 @@ export const projects = [
   },
   {
     name: 'MCA Study Materials',
-    description: 'Find notes and past exam questions for your KTU MCA courses. A shared, open-source resource for studying and preparing for exams.',
+    description: 'KTU MCA notes and past papers.',
     category: 'Learning · Study resources',
     number: '06',
     url: 'https://mca-rit.vercel.app/',

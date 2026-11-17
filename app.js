@@ -1,6 +1,5 @@
 import { projects, socials } from './content.js';
 import { initVisitorCounter } from './visitor-counter.js';
-import { initThinkingNotes } from './thinking-notes.js';
 import { initHandwriting } from './handwriting.js';
 
 initVisitorCounter();
@@ -85,7 +84,7 @@ function renderProjects() {
     arrow.setAttribute('aria-hidden', 'true');
     titleLink.append(' ', arrow);
     title.append(titleLink);
-    info.append(kicker, title, element('p', 'project-description', featured.description), externalLink(featured.url, 'project-open', 'Explore project ↗'));
+    info.append(kicker, title, element('p', 'project-description', featured.description));
     article.append(visual, info);
     featuredTarget.replaceChildren(article);
   }
@@ -104,7 +103,7 @@ function renderProjects() {
     arrow.setAttribute('aria-hidden', 'true');
     titleLink.append(' ', arrow);
     title.append(titleLink);
-    copy.append(meta, title, element('p', 'project-description', project.description), externalLink(project.url, 'project-open', 'Explore project ↗'));
+    copy.append(meta, title, element('p', 'project-description', project.description));
     article.append(projectImage(project), copy);
     fragment.append(article);
   }
@@ -112,7 +111,6 @@ function renderProjects() {
 }
 
 renderProjects();
-initThinkingNotes();
 initHandwriting();
 
 // Keep navigation native, including deep links and modified clicks.
