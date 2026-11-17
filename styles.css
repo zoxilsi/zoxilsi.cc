@@ -311,3 +311,89 @@ img, svg { display: block; max-width: 100%; }
   :root { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
 }
+
+/* zoxilsi: a little more personality, with motion kept close to its purpose. */
+.identity .name-highlight { font-size: .875rem; font-weight: 600; letter-spacing: -.025em; }
+.hero-eyebrow { margin-bottom: 12px; color: var(--muted); font-size: .625rem; letter-spacing: .04em; }
+.hero h1.hero-wordmark { display: flex; width: fit-content; color: var(--accent-text); font-size: clamp(3.5rem, 7.4vw, 7rem); line-height: 1.1; letter-spacing: -.08em; overflow-wrap: normal; }
+.hero-wordmark > span { display: inline-block; animation: wordmark-arrive 420ms var(--ease-out) both; animation-delay: calc(var(--letter) * 35ms); }
+@keyframes wordmark-arrive { from { opacity: 0; transform: translateY(18%); } to { opacity: 1; transform: translateY(0); } }
+.hero-manifesto { margin-top: 23px; font-size: clamp(.875rem, 1.2vw, 1.0625rem); line-height: 1.8; letter-spacing: -.035em; }
+.hero-manifesto > span { color: var(--muted); }
+.page-home .hero-intro { max-width: 46ch; margin-top: 18px; color: var(--muted); font-size: .8125rem; }
+.page-home .current-work { margin-top: 13px; }
+.page-home .work-jump { margin-top: 10px; }
+.page-home .hero-social a:last-child { flex-basis: auto; }
+.page-home .portrait { align-self: stretch; display: flex; flex-direction: column; }
+.page-home .portrait-image { flex: 1; height: 0; min-height: 500px; }
+.happiness-lab { grid-column: 1; grid-row: 2; display: grid; grid-template-columns: minmax(0, 1fr) 78px; align-items: center; gap: 16px; align-self: center; max-width: 480px; margin-top: 22px; padding: 17px 20px; position: relative; isolation: isolate; border: 1px solid var(--line); border-radius: 3px; }
+.happiness-lab::before { content: ''; position: absolute; inset: 0; z-index: -1; background: #414bff0d; opacity: 0; transition: opacity 240ms var(--ease-out); }
+.happiness-lab.is-happy::before { opacity: 1; }
+.lab-copy { min-width: 0; }
+.lab-kicker { margin-bottom: 8px; color: var(--dim); font-size: .6875rem; }
+.happiness-lab h2 { font-size: clamp(.8125rem, 1.1vw, 1rem); line-height: 1.5; letter-spacing: -.03em; }
+.lab-note { display: block; margin-top: 8px; color: var(--accent-text); font-family: var(--mono); font-size: .6875rem; overflow-wrap: anywhere; }
+.lab-result { min-height: 3.5em; max-width: 34ch; margin-top: 9px; color: var(--muted); font-size: .75rem; line-height: 1.75; }
+.lab-run { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 3px; padding: 0; border: 0; background: none; color: var(--accent-text); font-size: .6875rem; text-decoration: underline; text-underline-offset: 4px; transition: transform 140ms var(--ease-out); }
+.lab-run:active { transform: scale(.97); }
+.lab-face { width: 78px; height: 78px; color: var(--accent-text); overflow: visible; transform: rotate(-7deg); transition: transform 240ms var(--ease-out); }
+.face-ring { opacity: .45; }
+.face-neutral, .face-smile, .face-spark { transition: opacity 180ms var(--ease-out), transform 240ms var(--ease-out); transform-origin: 50% 60%; }
+.face-smile { opacity: 0; transform: translateY(-4px) scale(.95); }
+.face-spark { opacity: 0; transform: translateY(4px); }
+.is-happy .lab-face { transform: rotate(7deg); }
+.is-happy .face-neutral { opacity: 0; transform: translateY(4px); }
+.is-happy .face-smile, .is-happy .face-spark { opacity: 1; transform: translateY(0) scale(1); }
+.happiness-lab[data-instant='true'], .happiness-lab[data-instant='true'] *, .happiness-lab[data-instant='true']::before { transition: none; }
+.home-projects { padding-block: 44px 60px; border-top: 1px solid var(--line); }
+.home-projects-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px 24px; margin-bottom: 28px; }
+.home-projects-header h2 { margin-top: 9px; font-size: clamp(1rem, 1.8vw, 1.375rem); letter-spacing: -.04em; }
+.home-projects-header > a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--accent-text); font-size: .6875rem; }
+.home-project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 44px); }
+.home-project { display: block; min-width: 0; text-decoration: none; }
+.home-project-image { overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.home-project-image img { width: 100%; aspect-ratio: 1.8; height: auto; object-fit: contain; filter: grayscale(1); }
+.home-project-title { display: flex; justify-content: space-between; align-items: center; margin-top: 17px; }
+.home-project-title h3 { font-size: .9375rem; }
+.home-project-title > span { color: var(--accent-text); transition: transform 180ms var(--ease-out); }
+.home-project-tag { margin-top: 8px; color: var(--accent-text); font-size: .6875rem; }
+.home-project-description { max-width: 39ch; margin-top: 7px; color: var(--muted); font-size: .75rem; line-height: 1.9; }
+.contact-intro { margin-top: 18px; max-width: 40ch; color: var(--muted); font-size: .75rem; line-height: 1.9; }
+@media (hover: hover) and (pointer: fine) {
+  .home-project:hover .home-project-title > span { transform: translate(2px, -2px); }
+  .home-project:hover .home-project-image img, .home-project:focus-visible .home-project-image img { filter: grayscale(0); }
+  .lab-run:hover { color: var(--ink); }
+}
+@media (max-width: 1000px) and (min-width: 800px) {
+  .happiness-lab { grid-template-columns: minmax(0, 1fr) 58px; gap: 12px; padding: 14px; }
+  .lab-face { width: 58px; height: 58px; }
+}
+@media (max-width: 799px) {
+  .page-home .portrait { display: block; margin-top: 30px; }
+  .page-home .portrait-image { height: auto; min-height: 0; }
+  .hero h1.hero-wordmark { font-size: clamp(3.5rem, 13vw, 5.5rem); }
+  .happiness-lab { align-self: flex-start; width: 100%; max-width: 480px; margin-top: 26px; }
+  .home-project-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .home-project { max-width: 480px; }
+  .home-project-image img { aspect-ratio: 1.9; }
+  .home-project-description { max-width: 46ch; }
+  .home-projects { padding-block: 32px 42px; }
+}
+@media (max-width: 360px) {
+  .happiness-lab { grid-template-columns: minmax(0, 1fr) 48px; padding: 14px; gap: 12px; }
+  .lab-face { width: 48px; height: 48px; }
+  .hero-manifesto { font-size: .8125rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-wordmark > span { animation: none; }
+  .lab-face, .face-neutral, .face-smile, .face-spark, .home-project-title > span, .lab-run { transform: none !important; }
+}
+
+/* Keep the identity and navigation free of decorative separators. */
+.name-highlight { text-decoration: none; }
+.main-nav a, .hero-social a { text-decoration: none; }
+.visitor-counter::before { content: none; }
+.lab-run { padding: 7px 12px; border-radius: 3px; background: var(--accent-text); color: var(--paper); text-decoration: none; font-size: .6875rem; }
+@media (hover: hover) and (pointer: fine) {
+  .lab-run:hover { color: var(--paper); }
+}

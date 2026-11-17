@@ -1,6 +1,5 @@
 import { projects, socials } from './content.js';
 import { initVisitorCounter } from './visitor-counter.js';
-import { initHandwriting } from './handwriting.js';
 
 initVisitorCounter();
 
@@ -38,7 +37,7 @@ function projectImage(project, featured = false) {
   if (project.image) {
     const image = element('img', 'project-image');
     image.src = project.image;
-    image.alt = `${project.name} — product screenshot`;
+    image.alt = `${project.name} product screenshot`;
     image.loading = 'lazy';
     image.decoding = 'async';
     if (project.width > 0 && project.height > 0) {
@@ -77,7 +76,7 @@ function renderProjects() {
     visual.append(projectImage(featured, true));
     const info = element('div', 'featured-info');
     const kicker = element('div', 'project-kicker');
-    kicker.append(element('span', '', featured.number), element('span', '', featured.category));
+    kicker.append(element('span', '', featured.category.split(' · ').join(', ')));
     const title = element('h3', 'project-title');
     const titleLink = externalLink(featured.url, '', featured.name);
     const arrow = element('span', 'external-arrow', '↗');
@@ -96,7 +95,7 @@ function renderProjects() {
     const article = element('article', 'project-card');
     const copy = element('div', 'project-card-copy');
     const meta = element('div', 'project-card-meta');
-    meta.append(element('span', '', project.number), element('span', '', project.category));
+    meta.append(element('span', '', project.category.split(' · ').join(', ')));
     const title = element('h3', 'project-card-title');
     const titleLink = externalLink(project.url, '', project.name);
     const arrow = element('span', 'external-arrow', '↗');
@@ -111,7 +110,6 @@ function renderProjects() {
 }
 
 renderProjects();
-initHandwriting();
 
 // Keep navigation native, including deep links and modified clicks.
 const isPlainClick = event => !event.defaultPrevented && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey;
@@ -253,3 +251,24 @@ window.addEventListener('pagehide', () => {
   resetCopyFeedback();
 });
 window.addEventListener('pageshow', scheduleLayoutUpdate);
+
+// A small, local experiment: no requests, timers, or motion library.
+const happinessRun = byId('happiness-run');
+const happinessResult = byId('happiness-result');
+const happinessLab = document.querySelector('.happiness-lab');
+if (happinessRun && happinessResult && happinessLab) {
+  happinessRun.hidden = false;
+  happinessRun.addEventListener('click', event => {
+    const happy = happinessRun.getAttribute('aria-pressed') !== 'true';
+    happinessLab.dataset.instant = String(event.detail === 0);
+    happinessLab.classList.toggle('is-happy', happy);
+    happinessRun.setAttribute('aria-pressed', String(happy));
+    happinessRun.replaceChildren(happy ? 'Reset experiment ' : 'Let’s find out ');
+    const arrow = element('span', '', happy ? '↺' : '↗');
+    arrow.setAttribute('aria-hidden', 'true');
+    happinessRun.append(arrow);
+    happinessResult.textContent = happy
+      ? 'One small smile. That’s a start.'
+      : 'Maybe a small smile is a good place to start.';
+  });
+}

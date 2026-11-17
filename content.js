@@ -3,7 +3,7 @@
 export const projects = [
   {
     name: 'studio',
-    description: 'A mesh gradient tool for designers.',
+    description: 'Shape mesh gradients in your browser, then export them for your next design.',
     category: 'Design · Gradients',
     number: '01',
     url: 'https://studio.zoxilsi.cc/',
@@ -13,7 +13,7 @@ export const projects = [
   },
   {
     name: 'BananaCV',
-    description: 'Quick feedback for your résumé.',
+    description: 'Get a second opinion on your résumé, with clear feedback before you hit send.',
     category: 'Career · Résumé feedback',
     number: '02',
     url: 'https://bananacv.fun/',
@@ -23,7 +23,7 @@ export const projects = [
   },
   {
     name: 'Linara',
-    description: 'An AI terminal built in Rust.',
+    description: 'An AI terminal built in Rust. Describe what you want to do in plain English.',
     category: 'Workflow · Terminal',
     number: '03',
     url: 'https://github.com/zoxilsi/Linara-Terminal',
@@ -33,7 +33,7 @@ export const projects = [
   },
   {
     name: 'malluKey',
-    description: 'Practise typing in Malayalam.',
+    description: 'Get comfortable typing in Malayalam with an interactive keyboard and practice sessions.',
     category: 'Language · Typing practice',
     number: '04',
     url: 'https://mallu-key.vercel.app/',
@@ -43,7 +43,7 @@ export const projects = [
   },
   {
     name: 'Vibe',
-    description: 'Turn prompts into working apps.',
+    description: 'Turn an idea into a working app with AI, prompts, and a little experimentation.',
     category: 'Prototyping · AI',
     number: '05',
     url: 'https://github.com/zoxilsi/vibe',
@@ -53,7 +53,7 @@ export const projects = [
   },
   {
     name: 'MCA Study Materials',
-    description: 'KTU MCA notes and past papers.',
+    description: 'A shared collection of KTU MCA notes and past papers, ready when exams are near.',
     category: 'Learning · Study resources',
     number: '06',
     url: 'https://mca-rit.vercel.app/',

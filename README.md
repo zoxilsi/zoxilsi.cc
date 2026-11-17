@@ -2,9 +2,9 @@
 
 A personal portfolio for zoxilsi, built around Abhijith’s products, experiments, and portrait from [zoxilsi.cc](https://www.zoxilsi.cc/).
 
-Four separate pages keep the live site’s compact monospaced design. Copy is reduced to a short introduction, role, concise project descriptions, and contact details. The homepage focuses on the name, role, portrait, and social links. Repeated slogans, handwritten notes, and detailed product stories have been removed. Work, background, and contact details have their own pages. Blue and black accents sit over a dark charcoal background. Portrait and project images start in monochrome and reveal their original colour through interaction.
+Four separate pages keep the live site’s compact monospaced design. The main identity is zoxilsi. The homepage pairs a short personal introduction with an interactive smile experiment and three selected project previews. The homepage highlights zoxilsi, with the full name Abhijith T introduced only on About. Work and project descriptions give useful context without long case studies. Work, background, and contact details have their own pages. Blue and black accents sit over a dark charcoal background. Portrait and project images start in monochrome and reveal their original colour through interaction.
 
-Project descriptions are a single short sentence. Official job titles remain in the work history. The dark layout, blue accents, portrait, project images, and visitor counter are preserved. The alternative light redesign remains on `redesign/benji-inspired`; this update starts from the live `main` version.
+Project descriptions are one useful sentence. Official job titles remain in the work history. The dark layout, blue accents, portrait, project images, and visitor counter are preserved. The alternative light redesign remains on `redesign/benji-inspired`; this update starts from the live `main` version.
 
 The Eduport section draws on the supplied CV: JEE-style mock tests, Adapt AI, exam insights, 3D textbooks, and internal tools and AI automations. The 700K+ figure describes platform downloads. Current work is distinguished from shipped products, and the personal CV file is not included in the website build.
 
@@ -50,9 +50,9 @@ Stop the development server first, or pass `-- --port 3001` to use a different p
 - `contact.html` — email, address-copy action, and social profiles.
 - `content.js` — project descriptions, order, screenshots, URLs, and project numbers.
 - `styles.css` — dark charcoal appearance with blue and black accents, layout, responsive breakpoints, and typography. Palette variables are at the top of the file.
-- `app.js` — project rendering, image colour controls, and email copy.
+- `app.js` — project rendering, image colour controls, email copy, and the happiness experiment.
 - `thinking-notes.js` — retained source for the earlier thinking prompts; the simplified pages do not use it.
-- `handwriting.js` — retained support for the earlier handwritten annotations.
+- `handwriting.js` — retained source for the earlier annotations; the current pages do not load it.
 - `visitor-counter.js` — fetches and displays the shared visitor total in the footer.
 - `api/visitors.js` — same-origin Vercel endpoint for the persistent shared counter.
 - `scripts/visitor-redis-store.mjs` — atomically records and deduplicates visitors in Redis.
@@ -113,3 +113,7 @@ Run the local persistence, Redis REST contract, and API checks with `npm test`. 
 ## Asset credits
 
 Portrait and project screenshots were retrieved from the existing zoxilsi portfolio and compressed to WebP. Their content is unchanged. IBM Plex Mono and Reenie Beanie are distributed under the SIL Open Font License; their notices are in `assets/fonts/`.
+
+## Homepage interaction
+
+“Can I code happiness?” is a native button that toggles a smile and a short message. It works by touch, mouse, and keyboard. The button appears only after JavaScript initializes; a static message remains without JavaScript. Motion uses CSS opacity and transform transitions, with no animation library or network requests. Keyboard activation changes state instantly, and reduced-motion preferences remove movement. The wordmark enters once, and the rest of the copy remains still.

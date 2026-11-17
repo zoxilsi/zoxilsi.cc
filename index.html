@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#1b1b1b" />
     <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Abhijith, a.k.a. zoxilsi. Understanding what people need, figuring out what matters, and turning it into something useful." />
-    <meta property="og:title" content="zoxilsi — Things worth making" />
-    <meta property="og:description" content="Abhijith, a.k.a. zoxilsi. Understanding what people need, figuring out what matters, and turning it into something useful." />
+    <meta name="description" content="zoxilsi. A curious mind building useful things with design, code, and AI. Product Engineer at Eduport." />
+    <meta property="og:title" content="zoxilsi. Can I code happiness?" />
+    <meta property="og:description" content="zoxilsi. A curious mind building useful things with design, code, and AI. Product Engineer at Eduport." />
     <meta property="og:type" content="website" />
-    <title>zoxilsi — Things worth making</title>
+    <title>zoxilsi. Can I code happiness?</title>
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=5" />
     <link rel="preload" href="/assets/fonts/plex-mono.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/assets/fonts/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin />
@@ -20,26 +20,53 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="identity" href="/" aria-label="zoxilsi, home" aria-current="page"><span class="name-highlight">zoxilsi</span></a>
-      <nav class="main-nav" aria-label="Main navigation"><a href="/work" data-nav="work"><span class="nav-number" aria-hidden="true">01</span>Work</a><a href="/about" data-nav="about"><span class="nav-number" aria-hidden="true">02</span>About</a><a href="/contact" data-nav="contact"><span class="nav-number" aria-hidden="true">03</span>Contact</a></nav>
+      <nav class="main-nav" aria-label="Main navigation"><a href="/work" data-nav="work">Work</a><a href="/about" data-nav="about">About</a><a href="/contact" data-nav="contact">Contact</a></nav>
     </header>
     <div class="page-grid" aria-hidden="true"></div>
     <div class="page-grain" aria-hidden="true"></div>
     <main id="main" tabindex="-1">
       <section id="home" class="hero" aria-labelledby="hero-heading">
         <div class="hero-copy">
-          <div class="hero-signature"><img class="hero-mark" src="/assets/mark.svg" alt="" width="58" height="58" /></div>
-          <h1 id="hero-heading">I’m Abhijith.<br /><span class="annotated-word">I build useful things.<svg viewBox="0 0 170 13" fill="none" aria-hidden="true"><path d="M3 8c36-6 98-6 161-3M9 12c41-5 97-6 151-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></span></h1>
-          <p class="hero-intro">Product Engineer at <a href="/work#eduport-work">Eduport</a>.</p>
-          <a class="work-jump" href="/work">View work <span aria-hidden="true">↘</span></a>
+          <p class="hero-eyebrow">Design, code, and curiosity.</p>
+          <h1 id="hero-heading" class="hero-wordmark" aria-label="zoxilsi"><span aria-hidden="true" style="--letter:0">z</span><span aria-hidden="true" style="--letter:1">o</span><span aria-hidden="true" style="--letter:2">x</span><span aria-hidden="true" style="--letter:3">i</span><span aria-hidden="true" style="--letter:4">l</span><span aria-hidden="true" style="--letter:5">s</span><span aria-hidden="true" style="--letter:6">i</span></h1>
+          <p class="hero-manifesto">Building useful things.<br /><span>Leaving room for a little play.</span></p>
+          <p class="hero-intro">I turn curious ideas into useful products, playful tools, and the occasional “what if?” that makes it out of my notes.</p>
+          <p class="current-work">Currently building better ways to learn at <a href="/work#eduport-work">Eduport</a>.</p>
+          <a class="work-jump" href="/work">See what I’m making <span aria-hidden="true">↘</span></a>
         </div>
+        <section class="happiness-lab" aria-labelledby="happiness-heading">
+          <div class="lab-copy">
+            <p class="lab-kicker">A little curiosity</p>
+            <h2 id="happiness-heading">Can I code happiness?</h2>
+            <p class="lab-note">A little code. A little care.</p>
+            <p id="happiness-result" class="lab-result" role="status" aria-live="polite" aria-atomic="true">Maybe a small smile is a good place to start.</p>
+            <button id="happiness-run" class="lab-run" type="button" aria-pressed="false" aria-controls="happiness-result" hidden>Let’s find out <span aria-hidden="true">↗</span></button>
+          </div>
+          <svg class="lab-face" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <circle class="face-ring" cx="50" cy="50" r="43" stroke="currentColor" stroke-width="1.5" />
+            <g class="face-features"><circle cx="35" cy="40" r="3" fill="currentColor" /><circle cx="65" cy="40" r="3" fill="currentColor" />
+              <path class="face-neutral" d="M35 62H65" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path class="face-smile" d="M30 57C34 80 66 80 70 57" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </g>
+            <path class="face-spark" d="M83 5V17M77 11H89" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </section>
         <figure class="portrait">
-          <button class="portrait-image" type="button" aria-pressed="false" aria-label="Show portrait in colour"><img src="/assets/portrait.webp" width="526" height="568" alt="Abhijith, the person behind zoxilsi" fetchpriority="high" /></button>
-          <figcaption><span>Abhijith / zoxilsi</span><span class="hover-hint">Hover for colour</span><span class="tap-hint">Tap for colour</span></figcaption>
+          <button class="portrait-image" type="button" aria-pressed="false" aria-label="Show portrait in colour"><img src="/assets/portrait.webp" width="526" height="568" alt="The person behind zoxilsi" fetchpriority="high" /></button>
+          <figcaption><span>The human behind zoxilsi.</span><span class="hover-hint">Hover for colour</span><span class="tap-hint">Tap for colour</span></figcaption>
         </figure>
         <nav class="hero-social" aria-label="Find me elsewhere"><a href="https://github.com/zoxilsi" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/zoxilsi" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/zoxilsi" target="_blank" rel="noopener noreferrer">X ↗</a><a href="mailto:hey.abhijith@gmail.com">Email ↗</a></nav>
       </section>
+      <section class="home-projects" aria-labelledby="home-projects-heading">
+        <div class="home-projects-header"><div><p class="eyebrow">A few things I’ve put into the world</p><h2 id="home-projects-heading">Small ideas, made real.</h2></div><a href="/work">All projects <span aria-hidden="true">↗</span></a></div>
+        <div class="home-project-grid">
+          <a class="home-project" href="https://studio.zoxilsi.cc/" target="_blank" rel="noopener noreferrer"><div class="home-project-image"><img src="/assets/projects/studio.webp" alt="studio product preview" width="1440" height="827" loading="lazy" decoding="async" /></div><div class="home-project-title"><h3>studio</h3><span aria-hidden="true">↗</span></div><p class="home-project-tag">Mesh gradients, made yours.</p><p class="home-project-description">A little playground for colours, shapes, and happy accidents.</p></a>
+          <a class="home-project" href="https://bananacv.fun/" target="_blank" rel="noopener noreferrer"><div class="home-project-image"><img src="/assets/projects/bananacv.webp" alt="BananaCV product preview" width="1440" height="749" loading="lazy" decoding="async" /></div><div class="home-project-title"><h3>BananaCV</h3><span aria-hidden="true">↗</span></div><p class="home-project-tag">A fresh pair of eyes.</p><p class="home-project-description">Useful résumé feedback before you hit send.</p></a>
+          <a class="home-project" href="https://github.com/zoxilsi/Linara-Terminal" target="_blank" rel="noopener noreferrer"><div class="home-project-image"><img src="/assets/projects/linara.webp" alt="Linara product preview" width="1440" height="749" loading="lazy" decoding="async" /></div><div class="home-project-title"><h3>Linara</h3><span aria-hidden="true">↗</span></div><p class="home-project-tag">Less syntax. More doing.</p><p class="home-project-description">An AI terminal that starts with what you want to do.</p></a>
+        </div>
+      </section>
     </main>
-    <footer class="site-footer"><div class="footer-meta"><div class="footer-meta-details"><span>© 2026 zoxilsi</span><div id="visitor-counter" class="visitor-counter" data-state="loading" role="group" aria-labelledby="visitor-count-label" title="Visitor count is loading"><output id="visitor-count" class="visitor-count" aria-live="polite" aria-atomic="true" aria-label="Visitor count is loading">—</output><span id="visitor-count-label">Total visitors</span><span id="visitor-count-status" class="sr-only" role="status">Loading count…</span></div></div><a href="#main">Top ↑</a></div></footer>
+    <footer class="site-footer"><div class="footer-meta"><div class="footer-meta-details"><span>© 2026 zoxilsi</span><div id="visitor-counter" class="visitor-counter" data-state="loading" role="group" aria-labelledby="visitor-count-label" title="Visitor count is loading"><output id="visitor-count" class="visitor-count" aria-live="polite" aria-atomic="true" aria-label="Visitor count is loading">…</output><span id="visitor-count-label">Total visitors</span><span id="visitor-count-status" class="sr-only" role="status">Loading count…</span></div></div><a href="#main">Top ↑</a></div></footer>
     <p id="status-message" class="sr-only" role="status" aria-live="polite"></p>
   </body>
 </html>
