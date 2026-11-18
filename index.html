@@ -13,6 +13,7 @@
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=5" />
     <link rel="preload" href="/assets/fonts/plex-mono.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/assets/fonts/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin />
+    <script>(function(){try{var t=localStorage.getItem("zoxilsi-theme");if(t==="light"||t==="blue")document.documentElement.setAttribute("data-theme",t);var g=localStorage.getItem("zoxilsi-grain");if(g!==null)document.documentElement.style.setProperty("--grain-opacity",String(Number(g)/100));}catch(e){}})();</script>
     <link rel="stylesheet" href="/styles.css" />
     <script type="module" src="/app.js"></script>
   </head>
@@ -30,8 +31,11 @@
           <p class="hero-eyebrow">Design, code, and curiosity.</p>
           <h1 id="hero-heading" class="hero-wordmark" aria-label="zoxilsi"><span aria-hidden="true" style="--letter:0">z</span><span aria-hidden="true" style="--letter:1">o</span><span aria-hidden="true" style="--letter:2">x</span><span aria-hidden="true" style="--letter:3">i</span><span aria-hidden="true" style="--letter:4">l</span><span aria-hidden="true" style="--letter:5">s</span><span aria-hidden="true" style="--letter:6">i</span></h1>
           <p class="hero-manifesto">Building useful things.<br /><span>Leaving room for a little play.</span></p>
-          <p class="hero-intro">I turn curious ideas into useful products, playful tools, and the occasional “what if?” that makes it out of my notes.</p>
+          <p class="hero-definition"><span class="term">zoxilsi</span>, <span class="gloss">noun</span> — someone who can’t leave a “what if?” alone. Usually found at the intersection of <span class="link-highlight">design</span>, <span class="link-highlight">code</span>, and <span class="link-highlight">AI</span>.</p>
+          <p class="hero-intro">I turn curious ideas into useful products, playful tools, and the occasional experiment that makes it out of my notes.</p>
           <p class="current-work">Currently building better ways to learn at <a href="/work#eduport-work">Eduport</a>.</p>
+          <p class="hero-status"><span class="status-dot"></span>Open to interesting conversations, not actively job hunting.</p>
+          <p class="hero-location">Kerala, India · <time id="local-time">—</time></p>
           <a class="work-jump" href="/work">See what I’m making <span aria-hidden="true">↘</span></a>
         </div>
         <section class="happiness-lab" aria-labelledby="happiness-heading">
@@ -66,7 +70,7 @@
         </div>
       </section>
     </main>
-    <footer class="site-footer"><div class="footer-meta"><div class="footer-meta-details"><span>© 2026 zoxilsi</span><div id="visitor-counter" class="visitor-counter" data-state="loading" role="group" aria-labelledby="visitor-count-label" title="Visitor count is loading"><output id="visitor-count" class="visitor-count" aria-live="polite" aria-atomic="true" aria-label="Visitor count is loading">…</output><span id="visitor-count-label">Total visitors</span><span id="visitor-count-status" class="sr-only" role="status">Loading count…</span></div></div><a href="#main">Top ↑</a></div></footer>
+    <footer class="site-footer"><div class="footer-meta"><div class="footer-meta-details"><span>© 2026 zoxilsi</span><div id="visitor-counter" class="visitor-counter" data-state="loading" role="group" aria-labelledby="visitor-count-label" title="Visitor count is loading"><output id="visitor-count" class="visitor-count" aria-live="polite" aria-atomic="true" aria-label="Visitor count is loading">…</output><span id="visitor-count-label">Total visitors</span><span id="visitor-count-status" class="sr-only" role="status">Loading count…</span></div><a href="/colophon">Colophon</a></div><div class="footer-actions"><div class="appearance"><button id="appearance-toggle" class="appearance-toggle" type="button" aria-expanded="false" aria-controls="appearance-panel"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" /><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor" /></svg>Appearance</button><div id="appearance-panel" class="appearance-panel" hidden><div class="appearance-group"><p class="appearance-label">Theme</p><div class="theme-options" role="group" aria-label="Theme"><button class="theme-option" type="button" data-theme-option="dark" aria-pressed="true">Dark</button><button class="theme-option" type="button" data-theme-option="light" aria-pressed="false">Light</button><button class="theme-option" type="button" data-theme-option="blue" aria-pressed="false">Blue</button></div></div><div class="appearance-group"><label class="appearance-label" for="grain-range">Grain</label><input id="grain-range" class="grain-range" type="range" min="0" max="100" value="13" /></div></div></div><a href="#main">Top ↑</a></div></div></footer>
     <p id="status-message" class="sr-only" role="status" aria-live="polite"></p>
   </body>
 </html>

@@ -29,9 +29,9 @@ function externalLink(url, className = '', text) {
   return link;
 }
 
-function projectImage(project, featured = false) {
+function projectImage(project) {
   const preview = element('div', 'project-preview');
-  const link = externalLink(project.url, `project-image-link${featured ? ' external-link' : ''}`);
+  const link = externalLink(project.url, 'project-image-link');
   link.id = `project-image-${colourPreviews.length + 1}`;
   link.setAttribute('aria-label', `Visit ${project.name} (opens in a new tab)`);
   if (project.image) {
@@ -67,49 +67,57 @@ function setProjectColour({ link, toggle, name }, active) {
   toggle.setAttribute('aria-label', active ? `Hide colour in the ${name} preview` : `Show ${name} in colour`);
 }
 
-function renderProjects() {
-  const featuredTarget = byId('featured-project');
-  const featured = projects[0];
-  if (featuredTarget && featured) {
-    const article = element('article', 'featured-project');
-    const visual = element('div', 'featured-visual');
-    visual.append(projectImage(featured, true));
-    const info = element('div', 'featured-info');
-    const kicker = element('div', 'project-kicker');
-    kicker.append(element('span', '', featured.category.split(' · ').join(', ')));
-    const title = element('h3', 'project-title');
-    const titleLink = externalLink(featured.url, '', featured.name);
-    const arrow = element('span', 'external-arrow', '↗');
-    arrow.setAttribute('aria-hidden', 'true');
-    titleLink.append(' ', arrow);
-    title.append(titleLink);
-    info.append(kicker, title, element('p', 'project-description', featured.description));
-    article.append(visual, info);
-    featuredTarget.replaceChildren(article);
-  }
-
-  const index = byId('project-index');
-  if (!index) return;
-  const fragment = document.createDocumentFragment();
-  for (const project of projects.slice(1)) {
-    const article = element('article', 'project-card');
-    const copy = element('div', 'project-card-copy');
-    const meta = element('div', 'project-card-meta');
-    meta.append(element('span', '', project.category.split(' · ').join(', ')));
-    const title = element('h3', 'project-card-title');
-    const titleLink = externalLink(project.url, '', project.name);
-    const arrow = element('span', 'external-arrow', '↗');
-    arrow.setAttribute('aria-hidden', 'true');
-    titleLink.append(' ', arrow);
-    title.append(titleLink);
-    copy.append(meta, title, element('p', 'project-description', project.description));
-    article.append(projectImage(project), copy);
-    fragment.append(article);
-  }
-  index.replaceChildren(fragment);
+function timelineRow(project) {
+  const row = element('article', 'timeline-row');
+  row.dataset.group = project.group;
+  const meta = element('div', 'timeline-meta');
+  meta.append(element('p', 'timeline-date', project.date), element('p', '', project.category));
+  const main = element('div', 'timeline-main');
+  const copy = element('div', 'timeline-copy');
+  const title = element('h3', 'timeline-title');
+  const titleLink = externalLink(project.url, '', project.name);
+  const arrow = element('span', 'external-arrow', '↗');
+  arrow.setAttribute('aria-hidden', 'true');
+  titleLink.append(' ', arrow);
+  title.append(titleLink);
+  copy.append(title, element('p', 'timeline-tagline', project.tagline), element('p', 'timeline-description', project.description));
+  const thumb = element('div', 'timeline-thumb');
+  thumb.append(projectImage(project));
+  main.append(copy, thumb);
+  row.append(meta, main);
+  return row;
 }
 
-renderProjects();
+function renderWorkTimeline() {
+  const timeline = byId('work-timeline');
+  const tabs = byId('filter-tabs');
+  if (!timeline) return;
+
+  const rows = projects.map(project => ({ project, row: timelineRow(project) }));
+  timeline.replaceChildren(...rows.map(entry => entry.row));
+
+  if (!tabs) return;
+  const groups = ['All', ...new Set(projects.map(project => project.group))];
+  const buttons = groups.map(group => {
+    const count = group === 'All' ? projects.length : projects.filter(project => project.group === group).length;
+    const button = element('button', 'filter-tab');
+    button.type = 'button';
+    button.setAttribute('aria-pressed', String(group === 'All'));
+    button.dataset.group = group;
+    button.append(group, ' ', element('span', '', String(count)));
+    button.addEventListener('click', () => {
+      for (const other of buttons) other.setAttribute('aria-pressed', String(other === button));
+      for (const { project, row } of rows) {
+        row.hidden = group !== 'All' && project.group !== button.dataset.group;
+      }
+      announce(`Showing ${group === 'All' ? 'all projects' : `${group} projects`}.`);
+    });
+    return button;
+  });
+  tabs.replaceChildren(...buttons);
+}
+
+renderWorkTimeline();
 
 // Keep navigation native, including deep links and modified clicks.
 const isPlainClick = event => !event.defaultPrevented && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey;
@@ -142,7 +150,7 @@ for (const link of document.querySelectorAll('a[href*="#"]:not(.skip-link)')) {
 const root = document.documentElement;
 const siteHeader = document.querySelector('.site-header');
 const navLinks = document.querySelectorAll('[data-nav]');
-const pages = new Set(['home', 'work', 'about', 'contact']);
+const pages = new Set(['home', 'work', 'about', 'contact', 'colophon']);
 let headerHeight = -1;
 let layoutFrame = null;
 
@@ -271,4 +279,80 @@ if (happinessRun && happinessResult && happinessLab) {
       ? 'One small smile. That’s a start.'
       : 'Maybe a small smile is a good place to start.';
   });
+}
+
+// Appearance: theme (dark/light/blue) and grain intensity, kept per-device only.
+const appearanceToggle = byId('appearance-toggle');
+const appearancePanel = byId('appearance-panel');
+const themeOptions = document.querySelectorAll('[data-theme-option]');
+const grainRange = byId('grain-range');
+
+function readStored(key) {
+  try { return localStorage.getItem(key); } catch { return null; }
+}
+function writeStored(key, value) {
+  try { localStorage.setItem(key, value); } catch { /* storage unavailable */ }
+}
+
+function applyTheme(theme, { instant = false } = {}) {
+  if (instant) root.dataset.instant = 'true';
+  if (theme === 'light' || theme === 'blue') root.setAttribute('data-theme', theme);
+  else root.removeAttribute('data-theme');
+  for (const option of themeOptions) option.setAttribute('aria-pressed', String(option.dataset.themeOption === theme));
+  if (instant) requestAnimationFrame(() => { delete root.dataset.instant; });
+}
+
+function applyGrain(value, { instant = false } = {}) {
+  if (instant) root.dataset.instant = 'true';
+  root.style.setProperty('--grain-opacity', String(Number(value) / 100));
+  if (grainRange) grainRange.value = String(value);
+  if (instant) requestAnimationFrame(() => { delete root.dataset.instant; });
+}
+
+const storedTheme = readStored('zoxilsi-theme') || 'dark';
+applyTheme(storedTheme);
+const storedGrain = readStored('zoxilsi-grain');
+if (storedGrain !== null) applyGrain(storedGrain);
+
+for (const option of themeOptions) {
+  option.addEventListener('click', () => {
+    const theme = option.dataset.themeOption;
+    applyTheme(theme, { instant: true });
+    writeStored('zoxilsi-theme', theme);
+    announce(`Theme set to ${theme}.`);
+  });
+}
+
+grainRange?.addEventListener('input', () => {
+  applyGrain(grainRange.value, { instant: true });
+  writeStored('zoxilsi-grain', grainRange.value);
+});
+
+function closeAppearance() {
+  if (!appearancePanel || appearancePanel.hidden) return;
+  appearancePanel.hidden = true;
+  appearanceToggle?.setAttribute('aria-expanded', 'false');
+}
+
+appearanceToggle?.addEventListener('click', () => {
+  const open = appearancePanel?.hidden;
+  if (appearancePanel) appearancePanel.hidden = !open;
+  appearanceToggle.setAttribute('aria-expanded', String(open));
+});
+document.addEventListener('click', event => {
+  if (!appearancePanel || appearancePanel.hidden) return;
+  if (event.target === appearanceToggle || appearanceToggle?.contains(event.target) || appearancePanel.contains(event.target)) return;
+  closeAppearance();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeAppearance();
+});
+
+// Local time, shown next to the home hero's location line.
+const localTime = byId('local-time');
+if (localTime) {
+  const formatter = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  const update = () => { localTime.textContent = `${formatter.format(new Date())} IST`; };
+  update();
+  setInterval(update, 1000);
 }

@@ -3,8 +3,11 @@
 export const projects = [
   {
     name: 'studio',
+    tagline: 'Mesh gradients, made yours.',
     description: 'Shape mesh gradients in your browser, then export them for your next design.',
+    group: 'Design',
     category: 'Design · Gradients',
+    date: '2025',
     number: '01',
     url: 'https://studio.zoxilsi.cc/',
     image: './assets/projects/studio.webp',
@@ -13,8 +16,11 @@ export const projects = [
   },
   {
     name: 'BananaCV',
+    tagline: 'A fresh pair of eyes.',
     description: 'Get a second opinion on your résumé, with clear feedback before you hit send.',
+    group: 'Career',
     category: 'Career · Résumé feedback',
+    date: '2025',
     number: '02',
     url: 'https://bananacv.fun/',
     image: './assets/projects/bananacv.webp',
@@ -23,8 +29,11 @@ export const projects = [
   },
   {
     name: 'Linara',
+    tagline: 'Less syntax. More doing.',
     description: 'An AI terminal built in Rust. Describe what you want to do in plain English.',
+    group: 'Workflow',
     category: 'Workflow · Terminal',
+    date: '2025',
     number: '03',
     url: 'https://github.com/zoxilsi/Linara-Terminal',
     image: './assets/projects/linara.webp',
@@ -33,8 +42,11 @@ export const projects = [
   },
   {
     name: 'malluKey',
+    tagline: 'Type Malayalam without the hunt.',
     description: 'Get comfortable typing in Malayalam with an interactive keyboard and practice sessions.',
+    group: 'Language',
     category: 'Language · Typing practice',
+    date: '2024',
     number: '04',
     url: 'https://mallu-key.vercel.app/',
     image: './assets/projects/mallukey.webp',
@@ -43,8 +55,11 @@ export const projects = [
   },
   {
     name: 'Vibe',
+    tagline: 'From idea to app, out loud.',
     description: 'Turn an idea into a working app with AI, prompts, and a little experimentation.',
+    group: 'Prototyping',
     category: 'Prototyping · AI',
+    date: '2024',
     number: '05',
     url: 'https://github.com/zoxilsi/vibe',
     image: './assets/projects/vibe.webp',
@@ -53,8 +68,11 @@ export const projects = [
   },
   {
     name: 'MCA Study Materials',
+    tagline: 'Notes, shared when it counts.',
     description: 'A shared collection of KTU MCA notes and past papers, ready when exams are near.',
+    group: 'Learning',
     category: 'Learning · Study resources',
+    date: '2024',
     number: '06',
     url: 'https://mca-rit.vercel.app/',
     image: './assets/projects/mca.webp',
@@ -68,4 +86,16 @@ export const socials = {
   linkedin: 'https://linkedin.com/in/zoxilsi',
   twitter: 'https://x.com/zoxilsi',
   email: 'hey.abhijith@gmail.com',
+};
+
+// Credited in /colophon — keep in sync with what the site actually uses.
+export const colophon = {
+  typography: [
+    { name: 'IBM Plex Mono', credit: 'IBM', url: 'https://www.ibm.com/plex/' },
+    { name: 'Reenie Beanie', credit: 'James Grieshaber', url: 'https://fonts.google.com/specimen/Reenie+Beanie' },
+  ],
+  construction: 'Built with plain HTML, CSS, and JavaScript, no framework. Served as static pages with a small Node backend for the shared visitor count.',
+  inspirations: [
+    { name: 'henribredt.de', url: 'https://henribredt.de/' },
+  ],
 };
