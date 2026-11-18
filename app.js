@@ -260,27 +260,6 @@ window.addEventListener('pagehide', () => {
 });
 window.addEventListener('pageshow', scheduleLayoutUpdate);
 
-// A small, local experiment: no requests, timers, or motion library.
-const happinessRun = byId('happiness-run');
-const happinessResult = byId('happiness-result');
-const happinessLab = document.querySelector('.happiness-lab');
-if (happinessRun && happinessResult && happinessLab) {
-  happinessRun.hidden = false;
-  happinessRun.addEventListener('click', event => {
-    const happy = happinessRun.getAttribute('aria-pressed') !== 'true';
-    happinessLab.dataset.instant = String(event.detail === 0);
-    happinessLab.classList.toggle('is-happy', happy);
-    happinessRun.setAttribute('aria-pressed', String(happy));
-    happinessRun.replaceChildren(happy ? 'Reset experiment ' : 'Let’s find out ');
-    const arrow = element('span', '', happy ? '↺' : '↗');
-    arrow.setAttribute('aria-hidden', 'true');
-    happinessRun.append(arrow);
-    happinessResult.textContent = happy
-      ? 'One small smile. That’s a start.'
-      : 'Maybe a small smile is a good place to start.';
-  });
-}
-
 // Appearance: theme (dark/light/blue) and grain intensity, kept per-device only.
 const appearanceToggle = byId('appearance-toggle');
 const appearancePanel = byId('appearance-panel');

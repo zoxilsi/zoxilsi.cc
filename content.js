@@ -95,7 +95,4 @@ export const colophon = {
     { name: 'Reenie Beanie', credit: 'James Grieshaber', url: 'https://fonts.google.com/specimen/Reenie+Beanie' },
   ],
   construction: 'Built with plain HTML, CSS, and JavaScript, no framework. Served as static pages with a small Node backend for the shared visitor count.',
-  inspirations: [
-    { name: 'henribredt.de', url: 'https://henribredt.de/' },
-  ],
 };
