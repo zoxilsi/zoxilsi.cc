@@ -2,7 +2,7 @@
 
 A personal portfolio for zoxilsi, built around Abhijith’s products, experiments, and portrait from [zoxilsi.cc](https://www.zoxilsi.cc/).
 
-Four separate pages keep the live site’s compact monospaced design. The main identity is zoxilsi. The homepage pairs a short personal introduction with an interactive smile experiment and three selected project previews. The homepage highlights zoxilsi, with the full name Abhijith T introduced only on About. Work and project descriptions give useful context without long case studies. Work, background, and contact details have their own pages. Blue and black accents sit over a dark charcoal background. Portrait and project images start in monochrome and reveal their original colour through interaction.
+Four separate pages keep the live site’s compact monospaced design. The main identity is zoxilsi. The homepage pairs a short personal introduction with a portrait and three selected project previews. The homepage highlights zoxilsi, with the full name Abhijith T introduced only on About. Work and project descriptions give useful context without long case studies. Work, background, and contact details have their own pages. Blue and black accents sit over a dark charcoal background.
 
 Project descriptions are one useful sentence. Official job titles remain in the work history. The dark layout, blue accents, portrait, project images, and visitor counter are preserved. The alternative light redesign remains on `redesign/benji-inspired`; this update starts from the live `main` version.
 
@@ -50,9 +50,7 @@ Stop the development server first, or pass `-- --port 3001` to use a different p
 - `contact.html` — email, address-copy action, and social profiles.
 - `content.js` — project descriptions, order, screenshots, URLs, and project numbers.
 - `styles.css` — dark charcoal appearance with blue and black accents, layout, responsive breakpoints, and typography. Palette variables are at the top of the file.
-- `app.js` — project rendering, image colour controls, email copy, and the happiness experiment.
-- `thinking-notes.js` — retained source for the earlier thinking prompts; the simplified pages do not use it.
-- `handwriting.js` — retained source for the earlier annotations; the current pages do not load it.
+- `app.js` — project rendering, project filters, email copy, and local time.
 - `visitor-counter.js` — fetches and displays the shared visitor total in the footer.
 - `api/visitors.js` — same-origin Vercel endpoint for the persistent shared counter.
 - `scripts/visitor-redis-store.mjs` — atomically records and deduplicates visitors in Redis.
@@ -67,11 +65,9 @@ Locally served IBM Plex Mono gives the introduction, navigation, and supporting 
 
 The introduction and portrait sit alongside each other when space allows and stack on smaller screens. Project previews, background information, and footer details adapt to the available width.
 
-Portrait and project images reveal their original colour on hover or keyboard focus on desktop. On touch screens, tap the portrait itself to reveal or hide its colour. Project previews have a separate **Show colour** button, so their image links still open the project. Scrolling an image into view does not reveal its colour automatically.
+Portrait and project images are shown in their original colour, with no hover or tap effects.
 
 Fonts and images are served locally. The visitor counter sends one request to this site's own backend on each page load. The browser does not load a third-party tracking script or contact Redis directly; production storage requests happen on the server.
-
-Four decorative blue notes use an original, locally stored SVG stroke alphabet in `assets/handwriting-glyphs.js`. Each note writes itself once as it enters the viewport, then stays readable. There is no looping or typing cursor. Reduced-motion preferences, hidden tabs, and page navigation finish or skip the drawing; without JavaScript or the required browser features, the original text remains visible.
 
 ## Visitor counter
 
@@ -116,4 +112,3 @@ Portrait and project screenshots were retrieved from the existing zoxilsi portfo
 
 ## Homepage interaction
 
-“Can I code happiness?” is a native button that toggles a smile and a short message. It works by touch, mouse, and keyboard. The button appears only after JavaScript initializes; a static message remains without JavaScript. Motion uses CSS opacity and transform transitions, with no animation library or network requests. Keyboard activation changes state instantly, and reduced-motion preferences remove movement. The wordmark enters once, and the rest of the copy remains still.

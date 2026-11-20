@@ -6,7 +6,6 @@ initVisitorCounter();
 const byId = id => document.getElementById(id);
 const status = byId('status-message');
 const announce = message => { if (status) status.textContent = message; };
-const colourPreviews = [];
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -32,7 +31,6 @@ function externalLink(url, className = '', text) {
 function projectImage(project) {
   const preview = element('div', 'project-preview');
   const link = externalLink(project.url, 'project-image-link');
-  link.id = `project-image-${colourPreviews.length + 1}`;
   link.setAttribute('aria-label', `Visit ${project.name} (opens in a new tab)`);
   if (project.image) {
     const image = element('img', 'project-image');
@@ -48,23 +46,8 @@ function projectImage(project) {
   } else {
     link.append(element('span', 'project-placeholder', project.name));
   }
-  const toggle = element('button', 'image-colour-toggle', 'Show colour');
-  toggle.type = 'button';
-  toggle.setAttribute('aria-pressed', 'false');
-  toggle.setAttribute('aria-label', `Show ${project.name} in colour`);
-  toggle.setAttribute('aria-controls', link.id);
-  const controls = { link, toggle, name: project.name };
-  toggle.addEventListener('click', () => setProjectColour(controls, toggle.getAttribute('aria-pressed') !== 'true'));
-  colourPreviews.push(controls);
-  preview.append(link, toggle);
+  preview.append(link);
   return preview;
-}
-
-function setProjectColour({ link, toggle, name }, active) {
-  link.classList.toggle('is-colour', active);
-  toggle.setAttribute('aria-pressed', String(active));
-  toggle.textContent = active ? 'Hide colour' : 'Show colour';
-  toggle.setAttribute('aria-label', active ? `Hide colour in the ${name} preview` : `Show ${name} in colour`);
 }
 
 function timelineRow(project) {
@@ -150,7 +133,7 @@ for (const link of document.querySelectorAll('a[href*="#"]:not(.skip-link)')) {
 const root = document.documentElement;
 const siteHeader = document.querySelector('.site-header');
 const navLinks = document.querySelectorAll('[data-nav]');
-const pages = new Set(['home', 'work', 'about', 'contact', 'colophon']);
+const pages = new Set(['home', 'work', 'about', 'contact']);
 let headerHeight = -1;
 let layoutFrame = null;
 
@@ -171,33 +154,6 @@ function updateCurrentPage() {
   }
 }
 
-// Desktop colour is a CSS hover/focus treatment. Touch users get explicit
-// buttons, while every project image link keeps its normal destination.
-const touchMedia = typeof window.matchMedia === 'function' ? window.matchMedia('(hover: none), (pointer: coarse)') : null;
-const portraits = document.querySelectorAll('button.portrait-image');
-
-function setPortraitColour(portrait, active) {
-  portrait.classList.toggle('is-colour', active);
-  portrait.setAttribute('aria-pressed', String(active));
-  portrait.setAttribute('aria-label', active ? 'Show portrait in black and white' : 'Show portrait in colour');
-}
-
-for (const portrait of portraits) {
-  portrait.addEventListener('click', event => {
-    if (!touchMedia?.matches && event.pointerType !== 'touch' && event.detail !== 0) return;
-    setPortraitColour(portrait, portrait.getAttribute('aria-pressed') !== 'true');
-  });
-  portrait.addEventListener('blur', () => {
-    if (!touchMedia?.matches) setPortraitColour(portrait, false);
-  });
-}
-
-function resetColourControls() {
-  for (const portrait of portraits) setPortraitColour(portrait, false);
-  for (const preview of colourPreviews) setProjectColour(preview, false);
-  scheduleLayoutUpdate();
-}
-
 function refreshLayout() {
   layoutFrame = null;
   measureHeader();
@@ -212,11 +168,6 @@ window.addEventListener('resize', scheduleLayoutUpdate);
 window.addEventListener('orientationchange', scheduleLayoutUpdate);
 window.addEventListener('load', scheduleLayoutUpdate);
 window.visualViewport?.addEventListener('resize', scheduleLayoutUpdate);
-if (typeof touchMedia?.addEventListener === 'function') {
-  touchMedia.addEventListener('change', resetColourControls);
-} else if (typeof touchMedia?.addListener === 'function') {
-  touchMedia.addListener(resetColourControls);
-}
 if ('ResizeObserver' in window && siteHeader) {
   const layoutObserver = new ResizeObserver(scheduleLayoutUpdate);
   layoutObserver.observe(siteHeader);
@@ -259,73 +210,6 @@ window.addEventListener('pagehide', () => {
   resetCopyFeedback();
 });
 window.addEventListener('pageshow', scheduleLayoutUpdate);
-
-// Appearance: theme (dark/light/blue) and grain intensity, kept per-device only.
-const appearanceToggle = byId('appearance-toggle');
-const appearancePanel = byId('appearance-panel');
-const themeOptions = document.querySelectorAll('[data-theme-option]');
-const grainRange = byId('grain-range');
-
-function readStored(key) {
-  try { return localStorage.getItem(key); } catch { return null; }
-}
-function writeStored(key, value) {
-  try { localStorage.setItem(key, value); } catch { /* storage unavailable */ }
-}
-
-function applyTheme(theme, { instant = false } = {}) {
-  if (instant) root.dataset.instant = 'true';
-  if (theme === 'light' || theme === 'blue') root.setAttribute('data-theme', theme);
-  else root.removeAttribute('data-theme');
-  for (const option of themeOptions) option.setAttribute('aria-pressed', String(option.dataset.themeOption === theme));
-  if (instant) requestAnimationFrame(() => { delete root.dataset.instant; });
-}
-
-function applyGrain(value, { instant = false } = {}) {
-  if (instant) root.dataset.instant = 'true';
-  root.style.setProperty('--grain-opacity', String(Number(value) / 100));
-  if (grainRange) grainRange.value = String(value);
-  if (instant) requestAnimationFrame(() => { delete root.dataset.instant; });
-}
-
-const storedTheme = readStored('zoxilsi-theme') || 'dark';
-applyTheme(storedTheme);
-const storedGrain = readStored('zoxilsi-grain');
-if (storedGrain !== null) applyGrain(storedGrain);
-
-for (const option of themeOptions) {
-  option.addEventListener('click', () => {
-    const theme = option.dataset.themeOption;
-    applyTheme(theme, { instant: true });
-    writeStored('zoxilsi-theme', theme);
-    announce(`Theme set to ${theme}.`);
-  });
-}
-
-grainRange?.addEventListener('input', () => {
-  applyGrain(grainRange.value, { instant: true });
-  writeStored('zoxilsi-grain', grainRange.value);
-});
-
-function closeAppearance() {
-  if (!appearancePanel || appearancePanel.hidden) return;
-  appearancePanel.hidden = true;
-  appearanceToggle?.setAttribute('aria-expanded', 'false');
-}
-
-appearanceToggle?.addEventListener('click', () => {
-  const open = appearancePanel?.hidden;
-  if (appearancePanel) appearancePanel.hidden = !open;
-  appearanceToggle.setAttribute('aria-expanded', String(open));
-});
-document.addEventListener('click', event => {
-  if (!appearancePanel || appearancePanel.hidden) return;
-  if (event.target === appearanceToggle || appearanceToggle?.contains(event.target) || appearancePanel.contains(event.target)) return;
-  closeAppearance();
-});
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeAppearance();
-});
 
 // Local time, shown next to the home hero's location line.
 const localTime = byId('local-time');

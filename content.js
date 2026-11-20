@@ -1,5 +1,4 @@
 // The portfolio's project content. Add or reorder entries here.
-// Images and project facts come from zoxilsi.cc; descriptions explain each use case.
 export const projects = [
   {
     name: 'studio',
@@ -88,11 +87,3 @@ export const socials = {
   email: 'hey.abhijith@gmail.com',
 };
 
-// Credited in /colophon — keep in sync with what the site actually uses.
-export const colophon = {
-  typography: [
-    { name: 'IBM Plex Mono', credit: 'IBM', url: 'https://www.ibm.com/plex/' },
-    { name: 'Reenie Beanie', credit: 'James Grieshaber', url: 'https://fonts.google.com/specimen/Reenie+Beanie' },
-  ],
-  construction: 'Built with plain HTML, CSS, and JavaScript, no framework. Served as static pages with a small Node backend for the shared visitor count.',
-};

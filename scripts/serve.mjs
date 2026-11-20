@@ -21,11 +21,10 @@ const pages = new Map([
   ['/work', 'work.html'],
   ['/about', 'about.html'],
   ['/contact', 'contact.html'],
-  ['/colophon', 'colophon.html'],
 ]);
 const pageAliases = new Map([
   ['/index.html', '/'],
-  ...['work', 'about', 'contact', 'colophon'].flatMap(page => [
+  ...['work', 'about', 'contact'].flatMap(page => [
     [`/${page}.html`, `/${page}`],
     [`/${page}/`, `/${page}`],
   ]),

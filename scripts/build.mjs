@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = new URL('../', import.meta.url);
 const output = new URL('dist/', root);
-const files = ['index.html', 'work.html', 'about.html', 'contact.html', 'colophon.html', 'styles.css', 'app.js', 'content.js', 'thinking-notes.js', 'handwriting.js', 'visitor-counter.js', 'assets'];
+const files = ['index.html', 'work.html', 'about.html', 'contact.html', 'styles.css', 'app.js', 'content.js', 'visitor-counter.js', 'assets'];
 
 for (const file of files) await stat(new URL(file, root));
 await rm(output, { recursive: true, force: true });
